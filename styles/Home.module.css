@@ -4,28 +4,12 @@
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
 }
 
 .title a {
@@ -41,42 +25,43 @@
 
 .title {
   margin: 0;
+  padding-top: 2rem;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .title,
 .description {
-  text-align: center;
+  text-align: right;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+}
+
+.singleProductTitle {
+  text-align: right;
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+  padding-left: 68rem;
 }
 
 .description {
-  margin: 4rem 0;
+  /* margin: 4rem 0; */
   line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-size: 1.3rem;
 }
 
 .grid {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+  padding-top: 3rem;
+  padding-bottom: 6.3rem;
 }
 
 .card {
   margin: 1rem;
   padding: 1.5rem;
-  text-align: left;
+  text-align: center;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
@@ -85,11 +70,23 @@
   max-width: 300px;
 }
 
+.addToCartButton {
+  margin-bottom: 2rem;
+  width: 7rem;
+  height: 2rem;
+  background-color: #d18cb3;
+  border-radius: 0.3rem;
+}
+
+.addToCartButtonContainer {
+  text-align: center;
+}
+
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #e2d2d2;
+  border-color: #974f4f;
 }
 
 .card h2 {
@@ -113,4 +110,194 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.shoppingCart {
+  text-align: right;
+  padding-right: 5rem;
+}
+
+.singleProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+}
+
+.singleImage {
+  padding-right: 5rem;
+}
+
+.aboutHomePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutPage h1 {
+  padding-top: 8rem;
+  width: 70rem;
+  padding-left: 42rem;
+}
+
+.aboutPage p {
+  width: 70rem;
+  padding-left: 30rem;
+}
+
+.aboutTextContainer {
+  padding-left: 10rem;
+  width: 50rem;
+}
+
+.shopButton {
+  height: 2rem;
+  width: 6rem;
+  background-color: #d18cb3;
+  border-radius: 0.3rem;
+}
+
+.deleteButton {
+  text-align: center;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 20px;
+  left: 30px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -7px;
+  left: -10px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #b15aa5;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/*
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 1639px;
+  height: 750px;
+  margin: -100px 0 0 -135px;
+  padding: 50px;
+  padding-top: 120px;
+  /* border-radius: 25%; */
+
+  background: #f3d3e5;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu a {
+  display: flex;
+  padding: 25px 0;
+  font-size: 72px;
+  padding-left: 40rem;
+  font-weight: 900;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+.footer {
+  border-top: 1px solid #e3d6e6;
+  text-align: center;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
 }

@@ -1865,6 +1865,18 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dotenv-safe@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv-safe/-/dotenv-safe-8.2.0.tgz#8d548c7318a62c09a66c4dc8c31864cc007c78ba"
+  integrity sha512-uWwWWdUQkSs5a3mySDB22UtNwyEYi0JtEQu+vDzIqr9OjbDdC2Ip13PnSpi/fctqlYmzkxCeabiyCAOROuAIaA==
+  dependencies:
+    dotenv "^8.2.0"
+
+dotenv@^8.2.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
+  integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
+
 electron-to-chromium@^1.4.71:
   version "1.4.72"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.72.tgz#19b871f1da8be8199b2330d694fc84fcdb72ecd9"
@@ -3134,6 +3146,11 @@ postcss@8.4.5:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
+
+postgres@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/postgres/-/postgres-1.0.2.tgz#7b9f6769934f727cec0f1d7ef58d4915a327f5dd"
+  integrity sha512-zeLgt42KSUNgX/uvo+gbVxTAYwgSY6MIKuU/a8YWuObX4rtGuKrVWopvEAqIAPSO0FeHS1TsSKnqPjoufPy8NA==
 
 prebuild-install@^7.0.1:
   version "7.0.1"
