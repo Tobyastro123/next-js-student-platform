@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import getBlogPosts from '../util/database';
+import { getBlogPosts } from '../util/database';
 
 export default function BlogPostList(props) {
   return (
@@ -14,14 +14,14 @@ export default function BlogPostList(props) {
         </Head>
 
         <main className={styles.grid}>
-          {props.blogPosts.map((product) => {
+          {props.blogPosts.map((blogPost) => {
             return (
-              <div key={`product-${product.id}`}>
+              <div key={`blogPost-${blogPost.id}`}>
                 <div className={styles.grid}>
                   {/* Dynamic link, eg. /products/1, /products/2, etc */}
-                  <Link href={`/blogPosts/${product.id}`}>
+                  <Link href={`/blogPosts/${blogPost.id}`}>
                     <a className={styles.card}>
-                      {/* {product.name} */}
+                      {blogPost.title}
                       {/* <Image
                         src={`/unfortunately-foxes/${product.id}.png`}
                         width="200"
@@ -69,7 +69,7 @@ export async function getServerSideProps() {
       // In the props object, you can pass back
       // whatever information you want
 
-      blogPosts: blogPosts,
+      blogPosts,
     },
   };
 }
