@@ -1,22 +1,22 @@
 const blogPosts = [
   {
     // id: '1',
-    title: 'Vinyl Player',
+    title: 'MA35',
     story: 'music tool',
   },
   {
     // id: '2',
-    title: 'Guitar',
+    title: 'Master Business Informatics',
     story: 'music instrument',
   },
   {
     // id: '3',
-    title: 'Saxophone',
+    title: 'Anthropology',
     story: 'music instrument',
   },
   {
     // id: '4',
-    title: 'Microfon',
+    title: 'Arts and History',
     story: 'music tool',
   },
 ];

@@ -10,22 +10,30 @@ export default function Header() {
         <span />
         <span />
         <ul id={styles.menu}>
-          <Link href="/">
-            <a>Home</a>
+          <Link href="/studentVisa">
+            <a>Student Visa</a>
           </Link>
-          <Link href="/productList">
-            <a>Blog Post</a>
+          <Link href="/studentInsurance">
+            <a>Student Insurance</a>
           </Link>
-          <Link href="/about">
-            <a>Our Story</a>
+          <Link href="/aufenthaltstitel">
+            <a>Aufenthaltstitel</a>
           </Link>
         </ul>
       </div>
-      {/* <div className={styles.shoppingCart}>
-        <Link href="/shoppingCart">
-          <a>Shopping Cart 🛒</a>
-        </Link>
-      </div> */}
+      <div className={styles.navBarContainer}>
+        <div className={styles.navBar}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+          <Link href="/blogPostList">
+            <a>Blog</a>
+          </Link>
+          <Link href="/ourStory">
+            <a>Our Story</a>
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }

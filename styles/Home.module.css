@@ -112,10 +112,22 @@
   }
 }
 
-.shoppingCart {
+.navBarContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  padding-right: 3rem;
+}
+
+.navBarContainer a {
+  padding-right: 3.5rem;
+  font-weight: 700;
+}
+
+/* .navBar {
   text-align: right;
   padding-right: 5rem;
-}
+} */
 
 .singleProduct {
   display: flex;
@@ -207,11 +219,11 @@
 #menuToggle span {
   display: block;
   width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
+  height: 2px;
+  margin-bottom: 4px;
   position: relative;
 
-  background: #b15aa5;
+  background: #3a8a47;
   /* border-radius: 3px; */
 
   z-index: 1;
@@ -262,13 +274,13 @@
 #menu {
   position: absolute;
   width: 360px;
-  height: 750px;
+  height: 760px;
   margin: -100px 0 0 -135px;
   /* padding: 10px; */
   padding-top: 270px;
   /* border-radius: 25%; */
 
-  background: #f3d3e5;
+  background: #d3f3db;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -282,7 +294,7 @@
 #menu a {
   display: flex;
   padding: 15px 0;
-  font-size: 30px;
+  font-size: 20px;
   padding-left: 7rem;
   font-weight: 500;
 }

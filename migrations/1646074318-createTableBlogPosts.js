@@ -3,7 +3,7 @@ exports.up = async (sql) => {
   await sql`
 		CREATE TABLE blogPosts (
 			id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-			title varchar(20) NOT NULL,
+			title varchar(120) NOT NULL,
 			story varchar(330) NOT NULL
 		);
 	`;

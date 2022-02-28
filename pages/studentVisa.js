@@ -2,16 +2,16 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 
-export default function About() {
+export default function StudentVisa() {
   return (
     <Layout>
       <Head>
-        <title>About</title>
+        <title>Our Story</title>
         <meta name="description" content="About the page" />
       </Head>
       <div className={styles.aboutPage}>
         <div>
-          <h1>Our Story</h1>
+          <h1>Student Visa</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa
             nulla, convallis eget pharetra eu, mattis et nunc. Fusce vel
