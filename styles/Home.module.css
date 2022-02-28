@@ -69,7 +69,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
 }
-
+/*
 .addToCartButton {
   margin-bottom: 2rem;
   width: 7rem;
@@ -80,7 +80,7 @@
 
 .addToCartButtonContainer {
   text-align: center;
-}
+} */
 
 .card:hover,
 .card:focus,
@@ -100,11 +100,6 @@
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -112,16 +107,24 @@
   }
 }
 
+.logo {
+  margin-right: 17rem;
+  font-family: 'Sacramento', cursive;
+  font-size: 2rem;
+}
+
 .navBarContainer {
   display: flex;
   align-items: flex-end;
   justify-content: end;
   padding-right: 3rem;
+  border-bottom: 1px solid #e3d6e6;
+  padding-bottom: 2rem;
 }
 
 .navBarContainer a {
   padding-right: 3.5rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* .navBar {
@@ -177,7 +180,7 @@
 #menuToggle {
   display: block;
   position: relative;
-  top: 20px;
+  top: 50px;
   left: 30px;
 
   z-index: 1;

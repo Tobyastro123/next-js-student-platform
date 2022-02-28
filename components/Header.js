@@ -22,6 +22,11 @@ export default function Header() {
         </ul>
       </div>
       <div className={styles.navBarContainer}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <a>Student for Student</a>
+          </Link>
+        </div>
         <div className={styles.navBar}>
           <Link href="/">
             <a>Home</a>
