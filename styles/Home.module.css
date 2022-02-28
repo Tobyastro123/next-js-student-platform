@@ -212,7 +212,7 @@
   position: relative;
 
   background: #b15aa5;
-  border-radius: 3px;
+  /* border-radius: 3px; */
 
   z-index: 1;
 
@@ -261,11 +261,11 @@
  */
 #menu {
   position: absolute;
-  width: 1639px;
+  width: 360px;
   height: 750px;
   margin: -100px 0 0 -135px;
-  padding: 50px;
-  padding-top: 120px;
+  /* padding: 10px; */
+  padding-top: 270px;
   /* border-radius: 25%; */
 
   background: #f3d3e5;
@@ -281,10 +281,10 @@
 
 #menu a {
   display: flex;
-  padding: 25px 0;
-  font-size: 72px;
-  padding-left: 40rem;
-  font-weight: 900;
+  padding: 15px 0;
+  font-size: 30px;
+  padding-left: 7rem;
+  font-weight: 500;
 }
 
 /*
