@@ -116,7 +116,7 @@
 .navBarContainer {
   display: flex;
   align-items: flex-end;
-  justify-content: end;
+  justify-content: flex-end;
   padding-right: 1rem;
   border-bottom: 1px solid #e3d6e6;
   padding-bottom: 2rem;
