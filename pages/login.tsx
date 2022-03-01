@@ -19,69 +19,91 @@ export default function Login() {
         <title>Login</title>
         <meta name="description" content="Login on this website" />
       </Head>
+      <div className={styles.loginContainer}>
+        <div>
+          <div className={styles.loginTitle}>
+            <h1>Login</h1>
+          </div>
 
-      <h1>Login</h1>
-      <form
-        onSubmit={async (event) => {
-          event.preventDefault();
+          <div>
+            <form
+              onSubmit={async (event) => {
+                event.preventDefault();
 
-          const loginResponse = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username: username,
-              password: password,
-            }),
-          });
+                const loginResponse = await fetch('/api/login', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    username: username,
+                    password: password,
+                  }),
+                });
 
-          const loginResponseBody =
-            (await loginResponse.json()) as LoginResponseBody;
+                const loginResponseBody =
+                  (await loginResponse.json()) as LoginResponseBody;
 
-          if ('errors' in loginResponseBody) {
-            setErrors(loginResponseBody.errors);
-            return;
-          }
+                if ('errors' in loginResponseBody) {
+                  setErrors(loginResponseBody.errors);
+                  return;
+                }
 
-          // Get the query parameter from the Next.js router
-          const returnTo = router.query.returnTo;
-          console.log('returnTo', returnTo);
+                // Get the query parameter from the Next.js router
+                const returnTo = router.query.returnTo;
+                console.log('returnTo', returnTo);
 
-          if (
-            returnTo &&
-            !Array.isArray(returnTo) &&
-            // Security: Validate returnTo parameter against valid path
-            // (because this is untrusted user input)
-            /^\/[a-zA-Z0-9-?=]*$/.test(returnTo)
-          ) {
-            await router.push(returnTo);
-            return;
-          }
+                if (
+                  returnTo &&
+                  !Array.isArray(returnTo) &&
+                  // Security: Validate returnTo parameter against valid path
+                  // (because this is untrusted user input)
+                  /^\/[a-zA-Z0-9-?=]*$/.test(returnTo)
+                ) {
+                  await router.push(returnTo);
+                  return;
+                }
 
-          // Login worked, redirect to the homepage using the Next.js router
-          // setErrors([]); // clear the errors - maybe not necessary with redirect
-          await router.push(`/users/${loginResponseBody.user.id}`);
-        }}
-      >
-        <label>
-          Username:{' '}
-          <input
-            value={username}
-            onChange={(event) => setUsername(event.currentTarget.value)}
-          />
-        </label>
-        <label>
-          Password:{' '}
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.currentTarget.value)}
-          />
-        </label>
-        <button>Login</button>
-      </form>
+                // Login worked, redirect to the homepage using the Next.js router
+                // setErrors([]); // clear the errors - maybe not necessary with redirect
+                await router.push(`/users/${loginResponseBody.user.id}`);
+              }}
+            >
+              <div>
+                <div className={styles.inputFieldsUserLoginUsername}>
+                  <label>
+                    {/* Username:{' '} */}
+                    <input
+                      value={username}
+                      placeholder="Enter your username"
+                      onChange={(event) =>
+                        setUsername(event.currentTarget.value)
+                      }
+                    />
+                  </label>
+                </div>
+                <div className={styles.inputFieldsUserLoginPassword}>
+                  <label>
+                    {/* Password:{' '} */}
+                    <input
+                      type="password"
+                      value={password}
+                      placeholder="Enter your password"
+                      onChange={(event) =>
+                        setPassword(event.currentTarget.value)
+                      }
+                    />
+                  </label>
+                </div>
+              </div>
 
+              <div className={styles.loginButton}>
+                <button>Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <div className={styles.errorStyles}>
         {errors.map((error) => {
           return <div key={`error-${error.message}`}>{error.message}</div>;
