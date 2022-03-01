@@ -37,6 +37,12 @@ export default function Header() {
           <Link href="/ourStory">
             <a>Our Story</a>
           </Link>
+          <Link href="/register">
+            <a>Register</a>
+          </Link>
+          <Link href="/login">
+            <a>Login</a>
+          </Link>
         </div>
       </div>
     </nav>

@@ -117,13 +117,13 @@
   display: flex;
   align-items: flex-end;
   justify-content: end;
-  padding-right: 3rem;
+  padding-right: 1rem;
   border-bottom: 1px solid #e3d6e6;
   padding-bottom: 2rem;
 }
 
 .navBarContainer a {
-  padding-right: 3.5rem;
+  padding-right: 1rem;
   font-weight: 500;
 }
 
@@ -315,4 +315,8 @@
   position: absolute;
   bottom: 0%;
   width: 100%;
+}
+
+.errorStyles {
+  color: red;
 }
