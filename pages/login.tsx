@@ -69,7 +69,7 @@ export default function Login() {
 
                 // Login worked, redirect to the homepage using the Next.js router
                 // setErrors([]); // clear the errors - maybe not necessary with redirect
-                await router.push(`/users/protected-user`);
+                await router.push(`/`);
               }}
             >
               <div>
