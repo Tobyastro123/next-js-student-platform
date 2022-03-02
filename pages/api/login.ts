@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import bcrypt from 'bcrypt';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getUserWithPasswordHashByUsername, User } from '../../util/database';
@@ -66,6 +67,8 @@ export default async function loginHandler(
       });
       return; // Important: will prevent "Headers already sent" error
     }
+
+    console.log(crypto.randomBytes(90).toString('base64'));
 
     // TODO: Return created session in cookie
     response.status(201).json({
