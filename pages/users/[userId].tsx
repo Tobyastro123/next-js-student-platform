@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Layout from '../../components/Layout';
+import styles from '../../styles/Home.module.css';
 import { getUserById, User } from '../../util/database';
 
 type Props = {
@@ -34,11 +35,11 @@ export default function UserDetail(props: Props) {
           content={`User #${props.user.id} has a username of ${props.user.username}`}
         />
       </Head>
-      <h1>
-        User #{props.user.id} (username: {props.user.username})
-      </h1>
-      <div>id: {props.user.id}</div>
-      <div>username: {props.user.username}</div>
+      <div className={styles.profileHeader}>
+        <h1>Welcome, {props.user.username}</h1>
+        {/* <div>id: {props.user.id}</div> */}
+        {/* <div>username: {props.user.username}</div> */}
+      </div>
     </Layout>
   );
 }

@@ -372,3 +372,7 @@
   background-color: #d3f3db;
   border-radius: 0.3rem;
 }
+
+.profileHeader {
+  padding-left: 5rem;
+}
