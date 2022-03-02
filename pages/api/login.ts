@@ -68,7 +68,11 @@ export default async function loginHandler(
       return; // Important: will prevent "Headers already sent" error
     }
 
-    console.log(crypto.randomBytes(90).toString('base64'));
+    // 1. Create a unique token
+    const token = crypto.randomBytes(64).toString('base64');
+
+    // 2. Create the session
+    const session = await createSession(token, userWithPasswordHash.id);
 
     // TODO: Return created session in cookie
     response.status(201).json({
