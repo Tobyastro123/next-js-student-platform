@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <nav>
       <div id={styles.menuToggle}>
@@ -43,6 +43,7 @@ export default function Header() {
           <Link href="/login">
             <a>Login</a>
           </Link>
+          {props.userObject && <div>{props.userObject.username}</div>}
           <Link href="users/protected-user">
             <a>Profile</a>
           </Link>

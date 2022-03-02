@@ -13,7 +13,7 @@ export default function Layout(props) {
         />
       </Head>
 
-      <Header />
+      <Header userObject={props.userObject} />
 
       <main>{props.children}</main>
 

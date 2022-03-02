@@ -6,7 +6,7 @@ import { getBlogPosts } from '../util/database';
 
 export default function BlogPostList(props) {
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <div className={styles.container}>
         <Head>
           <title>Student Platform</title>
