@@ -9,14 +9,19 @@ import { LoginResponseBody } from './api/login';
 
 type Errors = { message: string }[];
 
-export default function Login() {
+type Props = {
+  refreshUserProfile: () => void;
+  userObject: { username: string };
+};
+
+export default function Login(props: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<Errors>([]);
   const router = useRouter();
 
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <Head>
         <title>Login</title>
         <meta name="description" content="Login on this website" />
@@ -69,6 +74,7 @@ export default function Login() {
 
                 // Login worked, redirect to the homepage using the Next.js router
                 // setErrors([]); // clear the errors - maybe not necessary with redirect
+                props.refreshUserProfile();
                 await router.push(`/`);
               }}
             >
