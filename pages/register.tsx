@@ -19,11 +19,13 @@ export default function Register() {
         <title>Register</title>
         <meta name="description" content="Register on this website" />
       </Head>
+
       <div className={styles.loginContainer}>
         <div>
           <div className={styles.loginTitle}>
             <h1>Register</h1>
           </div>
+
           <div>
             <form
               onSubmit={async (event) => {
@@ -64,6 +66,7 @@ export default function Register() {
                     />
                   </label>
                 </div>
+
                 <div className={styles.inputFieldsUserLoginPassword}>
                   <label>
                     {/* Password:{' '} */}
@@ -78,6 +81,7 @@ export default function Register() {
                   </label>
                 </div>
               </div>
+
               <div className={styles.loginButton}>
                 <button>Register</button>
               </div>
@@ -85,6 +89,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+
       <div className={styles.errorStyles}>
         {errors.map((error) => {
           return <div key={`error-${error.message}`}>{error.message}</div>;

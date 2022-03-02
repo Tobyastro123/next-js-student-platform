@@ -19,6 +19,7 @@ export default function Login() {
         <title>Login</title>
         <meta name="description" content="Login on this website" />
       </Head>
+
       <div className={styles.loginContainer}>
         <div>
           <div className={styles.loginTitle}>
@@ -82,6 +83,7 @@ export default function Login() {
                     />
                   </label>
                 </div>
+
                 <div className={styles.inputFieldsUserLoginPassword}>
                   <label>
                     {/* Password:{' '} */}
@@ -104,6 +106,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+
       <div className={styles.errorStyles}>
         {errors.map((error) => {
           return <div key={`error-${error.message}`}>{error.message}</div>;
