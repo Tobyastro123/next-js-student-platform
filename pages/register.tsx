@@ -9,14 +9,19 @@ import { RegisterResponseBody } from './api/register';
 
 type Errors = { message: string }[];
 
-export default function Register() {
+type Props = {
+  refreshUserProfile: () => void;
+  userObject: { username: string };
+};
+
+export default function Register(props: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<Errors>([]);
   const router = useRouter();
 
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <Head>
         <title>Register</title>
         <meta name="description" content="Register on this website" />
@@ -51,7 +56,7 @@ export default function Register() {
                   setErrors(registerResponseBody.errors);
                   return;
                 }
-
+                props.refreshUserProfile();
                 await router.push('/');
               }}
             >
