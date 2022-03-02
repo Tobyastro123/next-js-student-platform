@@ -43,6 +43,9 @@ export default function Header() {
           <Link href="/login">
             <a>Login</a>
           </Link>
+          <Link href="users/protected-user">
+            <a>Profile</a>
+          </Link>
           <Link href="/logout">
             <a>Logout</a>
           </Link>
