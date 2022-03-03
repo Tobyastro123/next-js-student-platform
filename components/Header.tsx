@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import { User } from '../util/database';
 
-export default function Header(props) {
+type Props = {
+  userObject?: User;
+};
+
+export default function Header(props: Props) {
   return (
     <nav>
       <div id={styles.menuToggle}>
@@ -37,19 +42,23 @@ export default function Header(props) {
           <Link href="/ourStory">
             <a>Our Story</a>
           </Link>
-          <Link href="/register">
-            <a>Register</a>
-          </Link>
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
-          {props.userObject && <div>{props.userObject.username}</div>}
           <Link href="users/protected-user">
             <a>Profile</a>
           </Link>
-          <Link href="/logout">
-            <a>Logout</a>
-          </Link>
+          {props.userObject && <div>{props.userObject.username}</div>}
+
+          {props.userObject ? (
+            <a href="/logout">Logout</a>
+          ) : (
+            <>
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
+              <Link href="/register">
+                <a>Register</a>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
