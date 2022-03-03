@@ -70,6 +70,23 @@ export async function getUserById(id: number) {
   return user && camelcaseKeys(user);
 }
 
+export async function getUserByValidSessionToken(token: string | undefined) {
+  if (!token) return undefined;
+  const [user] = await sql<[User | undefined]>`
+    SELECT
+      users.id,
+      users.username
+    FROM
+      users,
+      sessions
+    WHERE
+      sessions.token = ${token} AND
+      sessions.user_id = users.id AND
+      sessions.expiry_timestamp > now()
+  `;
+  return user && camelcaseKeys(user);
+}
+
 export async function getUserByUsername(username: string) {
   const [user] = await sql<[{ id: number } | undefined]>`
     SELECT id FROM users WHERE username = ${username}

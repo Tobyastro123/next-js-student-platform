@@ -39,28 +39,31 @@ export default function Header(props: Props) {
             <a>Student for Student</a>
           </Link>
         </div>
-        <div className={styles.navBar}>
-          <Link href="/blogPostList">
-            <a>Blog</a>
-          </Link>
-          <Link href="users/protected-user">
-            <a>Profile</a>
-          </Link>
-          {props.userObject && <div>{props.userObject.username}</div>}
+        {/* <div className={styles.navBar}> */}
+        <Link href="/blogPostList">
+          <a>Blog</a>
+        </Link>
+        <Link href="users/protected-user">
+          <a>Profile</a>
+        </Link>
 
-          {props.userObject ? (
-            <a href="/logout">Logout</a>
-          ) : (
-            <>
-              <Link href="/login">
-                <a>Login</a>
-              </Link>
-              <Link href="/register">
-                <a>Register</a>
-              </Link>
-            </>
-          )}
-        </div>
+        <div className={styles.usernameSpace} />
+        {props.userObject ? (
+          <a href="/logout">Logout</a>
+        ) : (
+          <>
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+            <Link href="/register">
+              <a>Register</a>
+            </Link>
+          </>
+        )}
+        {props.userObject && (
+          <div className={styles.username}>{props.userObject.username}</div>
+        )}
+        {/* </div> */}
       </div>
     </nav>
   );
