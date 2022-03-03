@@ -6,7 +6,7 @@ export default function StudentInsurance(props) {
   return (
     <Layout userObject={props.userObject}>
       <Head>
-        <title>Our Story</title>
+        <title>Student Insurance</title>
         <meta name="description" content="About the page" />
       </Head>
       <div className={styles.aboutPage}>

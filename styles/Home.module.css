@@ -393,3 +393,9 @@
 .profileHeader {
   padding-left: 5rem;
 }
+
+.profilePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,5 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
+import styles from '../../styles/Home.module.css';
 import { getUserById, getValidSessionByToken } from '../../util/database';
 
 type Props = {
@@ -9,9 +11,19 @@ type Props = {
 export default function ProtectedUser(props: Props) {
   return (
     <Layout userObject={props.userObject}>
-      <h1>you only will see this if are logged in</h1>
-      <div> user id is {props.user.id}</div>
-      <div> user name is {props.user.username}</div>
+      <Head>
+        <title>Profile</title>
+        <meta name="description" content="User profile" />
+      </Head>
+      <div className={styles.profilePage}>
+        <div>
+          <div>
+            <h1>Welcome</h1>
+          </div>
+          {/* <div> user id is {props.user.id}</div> */}
+          <div> {props.user.username}</div>
+        </div>
+      </div>
     </Layout>
   );
 }
