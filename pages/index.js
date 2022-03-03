@@ -17,15 +17,15 @@ export default function About(props) {
       </Head>
       <div className={styles.aboutHomePage}>
         <div className={styles.aboutTextContainer}>
-          <h1>Welcome</h1>
-          <h2>to Mockingbird</h2>
-          <p>
+          <h1>Welcome to</h1>
+          <h2>Student for Student</h2>
+          {/* <p>
             Would like to learn how to play a new instrument, maybe would like
             to buy one for a gift or have one more in your collection?
             Mockingbird is the right place to be.{' '}
-          </p>
+          </p> */}
           <Link href="/blogPostList" passHref>
-            <button className={styles.shopButton}>Discover 🎵</button>
+            <button className={styles.shopButton}>Discover 🌍</button>
           </Link>
         </div>
         {/* <Image src="/musical_key.png" width="600" height="615" /> */}

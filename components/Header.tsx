@@ -15,6 +15,13 @@ export default function Header(props: Props) {
         <span />
         <span />
         <ul id={styles.menu}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+          <Link href="/ourStory">
+            <a>Our Story</a>
+          </Link>
+          <div className={styles.sliderLine} />
           <Link href="/studentVisa">
             <a>Student Visa</a>
           </Link>
@@ -33,14 +40,8 @@ export default function Header(props: Props) {
           </Link>
         </div>
         <div className={styles.navBar}>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
           <Link href="/blogPostList">
             <a>Blog</a>
-          </Link>
-          <Link href="/ourStory">
-            <a>Our Story</a>
           </Link>
           <Link href="users/protected-user">
             <a>Profile</a>

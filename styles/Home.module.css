@@ -108,7 +108,9 @@
 }
 
 .logo {
-  margin-right: 17rem;
+  position: absolute;
+  margin-right: 39rem;
+  padding-top: 8rem;
   font-family: 'Sacramento', cursive;
   font-size: 2rem;
 }
@@ -120,6 +122,7 @@
   padding-right: 1rem;
   border-bottom: 1px solid #e3d6e6;
   padding-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .navBarContainer a {
@@ -162,8 +165,14 @@
 }
 
 .aboutTextContainer {
+  padding-top: 6rem;
   padding-left: 10rem;
   width: 50rem;
+}
+
+.aboutTextContainer h2 {
+  font-family: 'Sacramento', cursive;
+  font-size: 3rem;
 }
 
 .shopButton {
@@ -280,7 +289,7 @@
   height: 760px;
   margin: -100px 0 0 -135px;
   /* padding: 10px; */
-  padding-top: 270px;
+  padding-top: 200px;
   /* border-radius: 25%; */
 
   background: #d3f3db;
@@ -307,6 +316,14 @@
  */
 #menuToggle input:checked ~ ul {
   transform: none;
+}
+
+.sliderLine {
+  border-top: 1px solid #679c74;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 12.5rem;
+  margin-left: 5.5rem;
 }
 
 .footer {
