@@ -129,6 +129,23 @@ type Session = {
   userId: number;
 };
 
+export async function getValidSessionByToken(token: string | undefined) {
+  if (!token) return undefined;
+  const [session] = await sql<[Session | undefined]>`
+    SELECT
+      *
+    FROM
+      sessions
+    WHERE
+      token = ${token} AND
+      expiry_timestamp > now()
+  `;
+
+  await deleteExpiredSessions();
+
+  return session && camelcaseKeys(session);
+}
+
 export async function createSession(token: string, userId: number) {
   const [session] = await sql<[Session]>`
   INSERT INTO sessions
@@ -166,19 +183,4 @@ export async function deleteExpiredSessions() {
   `;
 
   return sessions.map((session) => camelcaseKeys(session));
-}
-
-export async function getValidSessionByToken(token: string) {
-  const [session] = await sql<[Session | undefined]>`
-  SELECT
-   *
-  FROM
-    sessions
-  WHERE
-  token = ${token}
-`;
-
-  await deleteExpiredSessions();
-
-  return session && camelcaseKeys(session);
 }

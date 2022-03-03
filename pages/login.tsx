@@ -125,6 +125,19 @@ export default function Login(props: Props) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // Redirect from HTTP to HTTPS on Heroku
+  if (
+    context.req.headers.host &&
+    context.req.headers['x-forwarded-proto'] &&
+    context.req.headers['x-forwarded-proto'] !== 'https'
+  ) {
+    return {
+      redirect: {
+        destination: `https://${context.req.headers.host}/login`,
+        permanent: true,
+      },
+    };
+  }
   // 1. check if there is a token and is valid from the cookie
   const token = context.req.cookies.sessionToken;
 

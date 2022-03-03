@@ -1,12 +1,39 @@
+import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import { getBlogPosts } from '../util/database';
+import {
+  BlogPost,
+  getBlogPosts,
+  getValidSessionByToken,
+} from '../util/database';
 
-export default function BlogPostList(props) {
+type Props =
+  | {
+      blogPosts: BlogPost[];
+    }
+  | {
+      error: string;
+    };
+
+export default function BlogPostList(props: Props) {
+  if ('error' in props) {
+    return (
+      <Layout>
+        <Head>
+          <title>Blog Post Error</title>
+          <meta name="description" content="An error about an blog post " />
+        </Head>
+        <h1>Blog Posts Error</h1>
+        {props.error}
+      </Layout>
+    );
+  }
+
   return (
-    <Layout userObject={props.userObject}>
+    <Layout>
+      {/* // <Layout userObject={props.userObject}> */}
       <div className={styles.container}>
         <Head>
           <title>Blogs</title>
@@ -47,7 +74,17 @@ export default function BlogPostList(props) {
 // getServerSideProps is exported from your files
 // (ONLY FILES IN /pages) and gets imported
 // by Next.js
-export async function getServerSideProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const sessionToken = context.req.cookies.sessionToken;
+  const session = await getValidSessionByToken(sessionToken);
+
+  if (!session) {
+    return {
+      props: {
+        error: 'In order to see blog posts, please log in',
+      },
+    };
+  }
   const blogPosts = await getBlogPosts();
 
   console.log('db', blogPosts);
@@ -66,7 +103,7 @@ export async function getServerSideProps() {
       // In the props object, you can pass back
       // whatever information you want
 
-      blogPosts,
+      blogPosts: blogPosts,
     },
   };
 }
