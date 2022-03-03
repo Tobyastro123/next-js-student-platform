@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState();
