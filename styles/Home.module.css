@@ -181,7 +181,7 @@
   font-size: 3rem;
 }
 
-.shopButton {
+/* .shopButton {
   height: 2rem;
   width: 6rem;
   background-color: #d18cb3;
@@ -190,7 +190,7 @@
 
 .deleteButton {
   text-align: center;
-}
+} */
 
 #menuToggle {
   display: block;

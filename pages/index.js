@@ -20,9 +20,9 @@ export default function About(props) {
             to buy one for a gift or have one more in your collection?
             Mockingbird is the right place to be.{' '}
           </p> */}
-          <Link href="/blogPostList" passHref>
+          {/* <Link href="/blogPostList" passHref>
             <button className={styles.shopButton}>Discover 🌍</button>
-          </Link>
+          </Link> */}
         </div>
         {/* <Image src="/musical_key.png" width="600" height="615" /> */}
       </div>
