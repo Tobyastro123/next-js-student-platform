@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
 }
 
 .main {
@@ -57,6 +57,11 @@
   padding-top: 1rem;
 }
 
+/* .blogPostContainer {
+  width: 40rem;
+  height: 40rem;
+} */
+
 .card {
   margin: 1rem;
   padding: 1.5rem;
@@ -66,7 +71,8 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  width: 15rem;
+  height: 10rem;
 }
 /*
 .addToCartButton {
@@ -324,7 +330,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 7rem;
-  margin-left: 4rem;
+  margin-left: 4.5rem;
 }
 
 .footer {

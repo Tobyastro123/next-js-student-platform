@@ -47,27 +47,30 @@ export default function BlogPostList(props: Props) {
                 Tell your story ✍️
               </button>
             </div>
-            <div className={styles.grid}>
-              {props.blogPosts.map((blogPost) => {
-                return (
-                  <div key={`blogPost-${blogPost.id}`}>
-                    <div className={styles.grid}>
-                      {/* Dynamic link, eg. /products/1, /products/2, etc */}
-                      <Link href={`/blogPosts/${blogPost.id}`}>
-                        <a className={styles.card}>
-                          {blogPost.title}
-                          {blogPost.story}
-                          {/* <Image
+
+            <div className={styles.blogPostContainer}>
+              <div className={styles.grid}>
+                {props.blogPosts.map((blogPost) => {
+                  return (
+                    <div key={`blogPost-${blogPost.id}`}>
+                      <div className={styles.grid}>
+                        {/* Dynamic link, eg. /products/1, /products/2, etc */}
+                        <Link href={`/blogPosts/${blogPost.id}`}>
+                          <a className={styles.card}>
+                            {blogPost.title}
+                            {/* {blogPost.story} */}
+                            {/* <Image
                         src={`/unfortunately-foxes/${product.id}.png`}
                         width="200"
                         height="200"
                       /> */}
-                        </a>
-                      </Link>{' '}
+                          </a>
+                        </Link>{' '}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </main>
