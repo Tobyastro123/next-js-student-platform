@@ -1,6 +1,3 @@
-// Don't copy this readFileSync - you don't need it
-// eslint-disable-next-line unicorn/prefer-node-protocol
-// import { readFileSync } from 'fs';
 import camelcaseKeys from 'camelcase-keys';
 import { config } from 'dotenv-safe';
 import postgres from 'postgres';
