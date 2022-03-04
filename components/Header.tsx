@@ -1,4 +1,4 @@
-import { css, Interpolation, Theme } from '@emotion/react';
+import { Interpolation, Theme } from '@emotion/react';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 import styles from '../styles/Home.module.css';
