@@ -13,6 +13,7 @@
     "bcrypt": "^5.0.1",
     "camelcase-keys": "^7.0.2",
     "cookie": "^0.4.2",
+    "csrf": "^3.1.0",
     "dotenv-cli": "^5.0.0",
     "dotenv-safe": "^8.2.0",
     "ley": "^0.7.1",
