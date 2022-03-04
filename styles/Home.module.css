@@ -414,6 +414,10 @@
   color: #3a8a47;
 }
 
+/*
+ * createPostButton
+ */
+
 .createPostButtonContainer {
   display: flex;
   align-items: end;
