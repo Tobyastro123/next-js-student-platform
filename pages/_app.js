@@ -18,11 +18,6 @@ function MyApp({ Component, pageProps }) {
     setUser(data.user);
   }, []);
 
-  // not the best practice to hide the username in the header
-  // useEffect(() => {
-  //   refreshUserProfile().catch(() => {});
-  // }, [refreshUserProfile]);
-
   return (
     <Component
       {...pageProps}

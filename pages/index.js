@@ -1,14 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 
 export default function About(props) {
-  useEffect(() => {
-    props.refreshUserProfile();
-  }, [props]);
-
   return (
     <Layout userObject={props.userObject}>
       <Head>
