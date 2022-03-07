@@ -61,6 +61,19 @@ export async function getBlogPostsById(id: number) {
   return camelcaseKeys(blogPost);
 }
 
+export async function createPost(title: string, story: string) {
+  const [post] = await sql<[BlogPost]>`
+    INSERT INTO blogposts
+      (title, story)
+    VALUES
+      (${title}, ${story})
+    RETURNING
+      id,
+      username
+  `;
+  return camelcaseKeys(post);
+}
+
 // User
 export type User = {
   id: number;
