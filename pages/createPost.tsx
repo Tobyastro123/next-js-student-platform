@@ -25,7 +25,7 @@ export default function CreateBlogPost(props: Props) {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          fetch('/api/createPost', {
+          await fetch('/api/createPost', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
