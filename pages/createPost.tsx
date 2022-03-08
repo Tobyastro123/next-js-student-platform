@@ -1,14 +1,21 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 
-export default function CreateBlogPost() {
+type Props = {
+  refreshUserProfile: () => void;
+  userObject: { username: string };
+};
+
+export default function CreateBlogPost(props: Props) {
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
+  const router = useRouter();
 
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <Head>
         <title>Create a Blog Post</title>
         <meta name="description" content="Create a blog post" />
@@ -16,7 +23,7 @@ export default function CreateBlogPost() {
 
       <h1>Create a blog post</h1>
       <form
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
           event.preventDefault();
           fetch('/api/createPost', {
             method: 'POST',
@@ -28,6 +35,8 @@ export default function CreateBlogPost() {
               story: story,
             }),
           });
+          props.refreshUserProfile();
+          await router.push('/');
         }}
       >
         <div>
