@@ -1,25 +1,25 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Animal, createAnimal, getAnimals } from '../../../util/database';
+import { BlogPost, createBlogPost, getBlogPosts } from '../../util/database';
 
-type AnimalsRequestBody = { animal: Omit<Animal, 'id'> };
+type PostsRequestBody = { post: Omit<BlogPost, 'id'> };
 
-type AnimalsNextApiRequest = Omit<NextApiRequest, 'body'> & {
-  body: AnimalsRequestBody;
+type PostsNextApiRequest = Omit<NextApiRequest, 'body'> & {
+  body: PostsRequestBody;
 };
 
-export type AnimalsResponseBodyGet = {
-  animals: Animal[];
+export type PostsResponseBodyGet = {
+  posts: BlogPost[];
 };
 
-export type AnimalsResponseBodyPost = { error: string } | { animal: Animal };
+export type PostsResponseBodyPost = { error: string } | { post: BlogPost };
 
-type AnimalsResponseBody = AnimalsResponseBodyGet | AnimalsResponseBodyPost;
+type PostsResponseBody = PostsResponseBodyGet | PostsResponseBodyPost;
 
 export default async function handler(
-  request: AnimalsNextApiRequest,
-  response: NextApiResponse<AnimalsResponseBody>,
+  request: PostsNextApiRequest,
+  response: NextApiResponse<PostsResponseBody>,
 ) {
   console.log('request Method', request.method);
   console.log('request Body', request.body);
@@ -28,26 +28,24 @@ export default async function handler(
   if (request.method === 'GET') {
     // if the method is get response with an array of animals
 
-    const animals = await getAnimals();
+    const posts = await getBlogPosts();
 
-    response.status(200).json({ animals: animals });
+    response.status(200).json({ posts: posts });
     return;
   } else if (request.method === 'POST') {
     // if the post create a new animal and response the new created animal
 
     // access the body animal from the request object
-    const animalFromRequest = request.body.animal;
+    const postFromRequest = request.body.post;
 
     // TODO: create error responses when the body don't have the full data. with a 400 status code
 
-    const newAnimal = await createAnimal(
-      animalFromRequest.firstName,
-      animalFromRequest.age,
-      animalFromRequest.type,
-      animalFromRequest.accessory,
+    const newPost = await createBlogPost(
+      postFromRequest.title,
+      postFromRequest.story,
     );
 
-    response.status(200).json({ animal: newAnimal });
+    response.status(200).json({ post: newPost });
     return;
   }
 
