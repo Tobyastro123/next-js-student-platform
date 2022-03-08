@@ -38,9 +38,11 @@ export default function BlogPostList(props: Props) {
         <main>
           <div>
             <div className={styles.createPostButtonContainer}>
-              <button className={styles.createPostButton}>
-                Tell your story ✍️
-              </button>
+              <Link href="/createPost" passHref>
+                <button className={styles.createPostButton}>
+                  Tell your story ✍️
+                </button>
+              </Link>
             </div>
 
             <div className={styles.blogPostContainer}>
