@@ -63,7 +63,7 @@ export async function getBlogPostsById(id: number) {
 
 export async function createPost(title: string, story: string) {
   const [post] = await sql<[BlogPost]>`
-    INSERT INTO blogposts
+    INSERT INTO blogPosts
       (title, story)
     VALUES
       (${title}, ${story})
