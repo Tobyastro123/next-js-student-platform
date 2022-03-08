@@ -3,7 +3,7 @@ import Layout from '../../components/Layout';
 import styles from '../../styles/Home.module.css';
 import { getBlogPostsById } from '../../util/database';
 
-export default function BlogPostList(props) {
+export default function singleBlogPost(props) {
   return (
     <Layout>
       <div className={styles.singleProduct}>
@@ -14,26 +14,11 @@ export default function BlogPostList(props) {
           </Head>
 
           <div className={styles.singleProduct}>
-            {/* <div className={styles.singleImage}>
-              <Image
-                src={`/unfortunately-foxes/${props.products.id}.png`}
-                width="300"
-                height="300"
-              />
-            </div> */}
             <div className={styles.singleProduct}>
               <div className={styles.singleImage}>
-                {/* <div>id: {props.product.id}</div> */}
                 <div> {props.blogPosts.title}</div>
                 <div> {props.blogPosts.story} </div>
               </div>
-              {/* <button
-                data-test-id="product-add-to-cart"
-                onClick={() => addProductToCart(props.products.id)}
-                className={styles.addToCartButton}
-              >
-                Add to Cart
-              </button> */}
             </div>
           </div>
         </div>

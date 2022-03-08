@@ -41,6 +41,8 @@ function connectOneTimeToDatabase() {
 // Connect to PostgreSQL
 const sql = connectOneTimeToDatabase();
 
+// blogPosts
+
 export type BlogPost = {
   id: number;
   title: string;
@@ -149,7 +151,6 @@ export async function createUser(username: string, passwordHash: string) {
 }
 
 // session
-
 type Session = {
   id: number;
   token: string;

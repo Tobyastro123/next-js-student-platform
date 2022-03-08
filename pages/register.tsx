@@ -142,7 +142,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   // 3. otherwise render the page
-
   return {
     props: {
       csrfToken: createCsrfToken(),
