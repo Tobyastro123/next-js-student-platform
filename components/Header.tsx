@@ -26,9 +26,9 @@ export default function Header(props: Props) {
         <span />
         <span />
         <ul id={styles.menu}>
-          <Link href="/">
+          {/* <Link href="/">
             <a>Home</a>
-          </Link>
+          </Link> */}
           <Link href="/ourStory">
             <a>Our Story</a>
           </Link>
