@@ -71,7 +71,7 @@ export async function createBlogPost(title: string, story: string) {
       (${title}, ${story})
     RETURNING
       id,
-      username
+      title
   `;
   return camelcaseKeys(post);
 }

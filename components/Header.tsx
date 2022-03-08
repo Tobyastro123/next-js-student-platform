@@ -55,6 +55,9 @@ export default function Header(props: Props) {
         <Link href="users/protected-user">
           <a>Profile</a>
         </Link>
+        <Link href="/createPost">
+          <a>Create a Post</a>
+        </Link>
 
         <div className={styles.usernameSpace} />
         {props.userObject ? (
