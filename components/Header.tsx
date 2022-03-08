@@ -51,9 +51,7 @@ export default function Header(props: Props) {
           </Link>
         </div>
         {/* <div className={styles.navBar}> */}
-        <Link href="/blogPostList">
-          <a>Blog</a>
-        </Link>
+
         <Link href="users/protected-user">
           <a>Profile</a>
         </Link>
