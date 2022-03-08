@@ -8,7 +8,7 @@ type Props = {
   user?: User;
 };
 
-export default function UserDetail(props: Props) {
+export default function singleUserDetail(props: Props) {
   if (!props.user) {
     // TODO: You would probably want to also send
     // a 404 HTTP status code (not found)
