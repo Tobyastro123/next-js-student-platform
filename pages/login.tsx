@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Button, Form } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { createCsrfToken } from '../util/auth';
@@ -30,92 +31,76 @@ export default function Login(props: Props) {
       </Head>
 
       <div className={styles.loginContainer}>
-        <div>
-          <div className={styles.loginTitle}>
-            <h1>Login</h1>
-          </div>
+        <Form
+          onSubmit={async (event) => {
+            event.preventDefault();
 
-          <div>
-            <form
-              onSubmit={async (event) => {
-                event.preventDefault();
+            const loginResponse = await fetch('/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                username: username,
+                password: password,
+                csrfToken: props.csrfToken,
+              }),
+            });
 
-                const loginResponse = await fetch('/api/login', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    username: username,
-                    password: password,
-                    csrfToken: props.csrfToken,
-                  }),
-                });
+            const loginResponseBody =
+              (await loginResponse.json()) as LoginResponseBody;
 
-                const loginResponseBody =
-                  (await loginResponse.json()) as LoginResponseBody;
+            if ('errors' in loginResponseBody) {
+              setErrors(loginResponseBody.errors);
+              return;
+            }
 
-                if ('errors' in loginResponseBody) {
-                  setErrors(loginResponseBody.errors);
-                  return;
-                }
+            // Get the query parameter from the Next.js router
+            const returnTo = router.query.returnTo;
+            console.log('returnTo', returnTo);
 
-                // Get the query parameter from the Next.js router
-                const returnTo = router.query.returnTo;
-                console.log('returnTo', returnTo);
+            if (
+              returnTo &&
+              !Array.isArray(returnTo) &&
+              // Security: Validate returnTo parameter against valid path
+              // (because this is untrusted user input)
+              /^\/[a-zA-Z0-9-?=]*$/.test(returnTo)
+            ) {
+              await router.push(returnTo);
+              return;
+            }
 
-                if (
-                  returnTo &&
-                  !Array.isArray(returnTo) &&
-                  // Security: Validate returnTo parameter against valid path
-                  // (because this is untrusted user input)
-                  /^\/[a-zA-Z0-9-?=]*$/.test(returnTo)
-                ) {
-                  await router.push(returnTo);
-                  return;
-                }
+            // Login worked, redirect to the homepage using the Next.js router
+            // setErrors([]); // clear the errors - maybe not necessary with redirect
+            props.refreshUserProfile();
+            await router.push(`/`);
+          }}
+        >
+          <Form.Field>
+            <label>
+              {/* Username:{' '} */}
+              <input
+                value={username}
+                placeholder="Enter your username"
+                onChange={(event) => setUsername(event.currentTarget.value)}
+              />
+            </label>
+          </Form.Field>
 
-                // Login worked, redirect to the homepage using the Next.js router
-                // setErrors([]); // clear the errors - maybe not necessary with redirect
-                props.refreshUserProfile();
-                await router.push(`/`);
-              }}
-            >
-              <div>
-                <div className={styles.inputFieldsUserLoginUsername}>
-                  <label>
-                    {/* Username:{' '} */}
-                    <input
-                      value={username}
-                      placeholder="Enter your username"
-                      onChange={(event) =>
-                        setUsername(event.currentTarget.value)
-                      }
-                    />
-                  </label>
-                </div>
+          <Form.Field>
+            <label>
+              {/* Password:{' '} */}
+              <input
+                type="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(event) => setPassword(event.currentTarget.value)}
+              />
+            </label>
+          </Form.Field>
 
-                <div className={styles.inputFieldsUserLoginPassword}>
-                  <label>
-                    {/* Password:{' '} */}
-                    <input
-                      type="password"
-                      value={password}
-                      placeholder="Enter your password"
-                      onChange={(event) =>
-                        setPassword(event.currentTarget.value)
-                      }
-                    />
-                  </label>
-                </div>
-              </div>
-
-              <div className={styles.loginButton}>
-                <button>Login</button>
-              </div>
-            </form>
-          </div>
-        </div>
+          <Button>Login</Button>
+        </Form>
       </div>
 
       <div className={styles.errorStyles}>
