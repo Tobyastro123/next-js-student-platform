@@ -50,65 +50,15 @@
   font-size: 1.3rem;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 1rem;
+.cardContainer {
+  margin-left: 16rem;
+  margin-right: 16rem;
+  margin-top: 4rem;
 }
-
-/* .blogPostContainer {
-  display: block;
-} */
 
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 15rem;
+  width: 35rem;
   height: 10rem;
-}
-/*
-.addToCartButton {
-  margin-bottom: 2rem;
-  width: 7rem;
-  height: 2rem;
-  background-color: #d18cb3;
-  border-radius: 0.3rem;
-}
-
-.addToCartButtonContainer {
-  text-align: center;
-} */
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #e2d2d2;
-  border-color: #974f4f;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
 
 .logo {
@@ -127,7 +77,7 @@
   justify-content: flex-end;
   padding-right: 1rem;
   /* border-bottom: 1px solid #f4f1f5; */
-  padding-bottom: 1.2rem;
+  padding-bottom: 4rem;
   padding-top: 1rem;
 }
 
@@ -135,11 +85,6 @@
   padding-right: 1rem;
   font-weight: 500;
 }
-
-/* .navBar {
-  text-align: right;
-  padding-right: 5rem;
-} */
 
 .singleProduct {
   display: flex;
@@ -181,16 +126,9 @@
   font-size: 3rem;
 }
 
-/* .shopButton {
-  height: 2rem;
-  width: 6rem;
-  background-color: #d18cb3;
-  border-radius: 0.3rem;
-}
-
-.deleteButton {
-  text-align: center;
-} */
+/*
+ * Just a quick hamburger
+ */
 
 #menuToggle {
   display: block;
@@ -231,9 +169,6 @@
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span {
   display: block;
   width: 33px;
@@ -335,9 +270,10 @@
 .footer {
   border-top: 1px solid #f0ecf1;
   text-align: center;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0%;
   width: 100%;
+  margin-top: 5rem;
 }
 
 .errorStyles {
@@ -420,15 +356,13 @@
 
 .createPostButtonContainer {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: flex-end;
   margin-right: 10rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .createPostButton {
-  background-color: #adceb5;
-  height: 2rem;
+  height: 2.5rem;
   width: 8rem;
-  border-radius: 0.3rem;
 }
