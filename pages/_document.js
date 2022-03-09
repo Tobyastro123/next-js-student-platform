@@ -9,7 +9,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;600;700&display=swap"
           rel="stylesheet"
         />
       </Head>
