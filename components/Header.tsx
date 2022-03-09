@@ -30,17 +30,17 @@ export default function Header(props: Props) {
             <a>Home</a>
           </Link> */}
           <Link href="/ourStory">
-            <a>Our Story</a>
+            <a>OUR STORY</a>
           </Link>
           <div className={styles.sliderLine} />
           <Link href="/studentVisa">
-            <a>Student Visa</a>
+            <a>STUDENT VISA</a>
           </Link>
           <Link href="/studentInsurance">
-            <a>Student Insurance</a>
+            <a>STUDENT INSURANCE</a>
           </Link>
           <Link href="/aufenthaltstitel">
-            <a>Aufenthaltstitel</a>
+            <a>AUFENTHALTSTITEL</a>
           </Link>
         </ul>
       </div>
@@ -53,22 +53,22 @@ export default function Header(props: Props) {
         {/* <div className={styles.navBar}> */}
 
         <Link href="users/protected-user">
-          <a>Profile</a>
+          <a>PROFILE</a>
         </Link>
         <Link href="/createPost">
-          <a>Create a Post</a>
+          <a>CREATE A POST</a>
         </Link>
 
         <div className={styles.usernameSpace} />
         {props.userObject ? (
-          <Anchor href="/logout">Logout</Anchor>
+          <Anchor href="/logout">LOGOUT</Anchor>
         ) : (
           <>
             <Link href="/login">
-              <a>Login</a>
+              <a>LOGIN</a>
             </Link>
             <Link href="/register">
-              <a>Register</a>
+              <a>REGISTER</a>
             </Link>
           </>
         )}

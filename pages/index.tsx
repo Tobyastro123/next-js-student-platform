@@ -34,10 +34,10 @@ export default function BlogPostList(props: Props) {
           <Button
             animated="fade"
             className={styles.createPostButton}
-            background-color="green"
+            color="violet"
           >
-            <Button.Content visible>Write</Button.Content>
-            <Button.Content hidden>Tell Your Story</Button.Content>
+            <Button.Content visible>WRITE . .</Button.Content>
+            <Button.Content hidden>TELL YOUR STORY</Button.Content>
           </Button>
         </Link>
       </div>
