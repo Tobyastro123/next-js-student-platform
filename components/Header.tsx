@@ -46,8 +46,8 @@ export default function Header(props: Props) {
       </div>
       <div className={styles.navBarContainer}>
         <div className={styles.logo}>
-          <Link href="/">
-            <a>Student for Student</a>
+          <Link href="/" passHref>
+            <p>Student for Student</p>
           </Link>
         </div>
         {/* <div className={styles.navBar}> */}

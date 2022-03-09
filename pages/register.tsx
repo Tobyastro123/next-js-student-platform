@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Button, Form } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { createCsrfToken } from '../util/auth';
@@ -30,76 +31,57 @@ export default function Register(props: Props) {
       </Head>
 
       <div className={styles.loginContainer}>
-        <div>
-          <div className={styles.loginTitle}>
-            <h1>Register</h1>
-          </div>
+        <Form
+          onSubmit={async (event) => {
+            event.preventDefault();
 
-          <div>
-            <form
-              onSubmit={async (event) => {
-                event.preventDefault();
+            const registerResponse = await fetch('/api/register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                username: username,
+                password: password,
+                csrfToken: props.csrfToken,
+              }),
+            });
 
-                const registerResponse = await fetch('/api/register', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    username: username,
-                    password: password,
-                    csrfToken: props.csrfToken,
-                  }),
-                });
+            const registerResponseBody =
+              (await registerResponse.json()) as RegisterResponseBody;
 
-                const registerResponseBody =
-                  (await registerResponse.json()) as RegisterResponseBody;
+            if ('errors' in registerResponseBody) {
+              setErrors(registerResponseBody.errors);
+              return;
+            }
+            props.refreshUserProfile();
+            await router.push('/');
+          }}
+        >
+          <Form.Field>
+            <label>
+              <input
+                value={username}
+                placeholder="Enter your username"
+                onChange={(event) => setUsername(event.currentTarget.value)}
+              />
+            </label>
+          </Form.Field>
 
-                if ('errors' in registerResponseBody) {
-                  setErrors(registerResponseBody.errors);
-                  return;
-                }
-                props.refreshUserProfile();
-                await router.push('/');
-              }}
-            >
-              <div>
-                <div className={styles.inputFieldsUserLoginUsername}>
-                  <label>
-                    {/* Username:{' '} */}
-                    <input
-                      value={username}
-                      placeholder="Enter your username"
-                      onChange={(event) =>
-                        setUsername(event.currentTarget.value)
-                      }
-                    />
-                  </label>
-                </div>
+          <Form.Field>
+            <label>
+              <input
+                type="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(event) => setPassword(event.currentTarget.value)}
+              />
+            </label>
+          </Form.Field>
 
-                <div className={styles.inputFieldsUserLoginPassword}>
-                  <label>
-                    {/* Password:{' '} */}
-                    <input
-                      type="password"
-                      value={password}
-                      placeholder="Enter your password"
-                      onChange={(event) =>
-                        setPassword(event.currentTarget.value)
-                      }
-                    />
-                  </label>
-                </div>
-              </div>
-
-              <div className={styles.loginButton}>
-                <button>Register</button>
-              </div>
-            </form>
-          </div>
-        </div>
+          <Button>Register</Button>
+        </Form>
       </div>
-
       <div className={styles.errorStyles}>
         {errors.map((error) => {
           return <div key={`error-${error.message}`}>{error.message}</div>;

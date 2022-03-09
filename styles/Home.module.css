@@ -32,6 +32,7 @@
 .navBarContainer a {
   padding-right: 2rem;
   color: black;
+  font-family: 'Raleway', sans-serif;
 }
 
 .singleProduct {
@@ -203,9 +204,11 @@
 #menu a {
   display: flex;
   padding: 15px 0;
-  font-size: 20px;
-  padding-left: 5rem;
-  font-weight: 500;
+  font-size: 15px;
+  padding-left: 6rem;
+
+  font-family: 'Raleway', sans-serif;
+  color: black;
 }
 
 /*
@@ -241,6 +244,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 5rem;
+  font-family: 'Raleway', sans-serif;
 }
 
 .profileHeader {
@@ -275,5 +279,7 @@
 
 .createPostButton {
   height: 2.5rem;
-  width: 8rem;
+  width: 9rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem !important;
 }
