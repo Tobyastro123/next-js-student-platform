@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Button, Card, Grid } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
