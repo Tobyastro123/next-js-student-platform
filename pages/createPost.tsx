@@ -51,6 +51,7 @@ export default function CreateBlogPost(props: Props) {
           </Form.Field>
 
           <Form.TextArea
+            style={{ minHeight: 200 }}
             value={story}
             placeholder="Write your story"
             onChange={(event) => setStory(event.currentTarget.value)}
