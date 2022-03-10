@@ -76,6 +76,24 @@ export async function createBlogPost(title: string, story: string) {
   return camelcaseKeys(post);
 }
 
+export async function updateBlogPostById(
+  id: number,
+  title: string,
+  story: string,
+) {
+  const [post] = await sql<[BlogPost | undefined]>`
+    UPDATE
+      blogPosts
+    SET
+      title = ${title},
+      story = ${story}
+    WHERE
+      id = ${id}
+    RETURNING *
+  `;
+  return post && camelcaseKeys(post);
+}
+
 // User
 export type User = {
   id: number;
