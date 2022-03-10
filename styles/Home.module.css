@@ -6,7 +6,11 @@
 
 .card {
   width: 35rem;
-  height: 13rem;
+  height: 18rem;
+}
+
+.cardHeader {
+  margin-bottom: 2rem;
 }
 
 .logo {
