@@ -29,6 +29,10 @@ export default function BlogPostList(props: Props) {
 
   return (
     <Layout>
+      <Head>
+        <title>Posts</title>
+        <meta name="description" content="These are my posts" />
+      </Head>
       <div className={styles.createPostButtonContainer}>
         <Link href="/createPost" passHref>
           <Button

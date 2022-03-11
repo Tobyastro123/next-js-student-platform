@@ -2,6 +2,8 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Button, Container, Divider, HeaderContent } from 'semantic-ui-react';
+import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Home.module.css';
 import { BlogPost, getBlogPostsById } from '../../util/database';
@@ -54,18 +56,30 @@ export default function SingleBlogPost(props: Props) {
       <div className={styles.singleProduct}>
         <div>
           <Head>
-            <title>Posts</title>
-            <meta name="description" content="This are my posts" />
+            <title>Single Post Page</title>
+            <meta name="description" content="This is my single Post PAge" />
           </Head>
-          <div> {props.blogPosts.title}</div>
-          <div> {props.blogPosts.story} </div>
-          <button
-            onClick={() => {
-              deletePost(props.blogPosts.id).catch(() => {});
-            }}
-          >
-            Delete
-          </button>
+          <div>
+            <div className={styles.deleteButtonOnSinglePage}>
+              <Button
+                inverted
+                color="red"
+                onClick={() => {
+                  deletePost(props.blogPosts.id).catch(() => {});
+                }}
+              >
+                Delete
+              </Button>
+            </div>
+            <Container>
+              <HeaderContent as="h2"> {props.blogPosts.title}</HeaderContent>
+              <Divider className={styles.dividerSinglePostPage} />
+              <p className={styles.paragraphSinglePostPage}>
+                {' '}
+                {props.blogPosts.story}{' '}
+              </p>
+            </Container>
+          </div>
         </div>
       </div>
     </Layout>

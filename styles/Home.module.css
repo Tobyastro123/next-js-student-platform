@@ -45,10 +45,24 @@
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 6rem;
+  width: 150rem;
 }
 
-.singleImage {
-  padding-right: 5rem;
+.paragraphSinglePostPage {
+  width: 42rem;
+}
+
+.dividerSinglePostPage {
+  width: 42rem;
+}
+
+.deleteButtonOnSinglePage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 20rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .aboutHomePage {
