@@ -94,6 +94,17 @@ export async function updateBlogPostById(
   return post && camelcaseKeys(post);
 }
 
+export async function deleteBlogPostById(id: number) {
+  const [post] = await sql<[BlogPost | undefined]>`
+    DELETE FROM
+      blogPosts
+    WHERE
+      id = ${id}
+    RETURNING *
+  `;
+  return post && camelcaseKeys(post);
+}
+
 // User
 export type User = {
   id: number;
