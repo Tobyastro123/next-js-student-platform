@@ -2,8 +2,11 @@ import styles from '../styles/Home.module.css';
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.fixedFooter}>
       <p>© 2022 Created by Olivera Kostadinoska</p>
-    </div>
+    </footer>
+    // <div className={styles.footer}>
+    //   <p>© 2022 Created by Olivera Kostadinoska</p>
+    // </div>
   );
 }

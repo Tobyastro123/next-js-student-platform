@@ -17,10 +17,10 @@
   position: absolute;
   margin-bottom: 0;
   margin-right: 44rem;
-  font-family: 'Sacramento', cursive;
+  /* font-family: 'Sacramento', cursive !important; */
   font-size: 2.2rem;
-  border-bottom: 0.1px solid #e05d12;
-  border-radius: 1rem;
+  /* border-bottom: 0.1px solid #e05d12;
+  border-radius: 1rem; */
 }
 
 .navBarContainer {
@@ -244,13 +244,32 @@
   margin-left: 4.5rem;
 }
 
-.footer {
+/* .footer {
   border-top: 1px solid #f0ecf1;
   text-align: center;
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
+  height: 60px;
   width: 100%;
   margin-top: 5rem;
+} */
+
+/* Footer */
+
+.fixedFooter {
+  align-items: center;
+  background-color: #f5ebeb;
+  bottom: 0;
+  margin-top: 5rem;
+  color: #666666;
+  display: flex;
+  font-size: 1em;
+  height: 50px;
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+  z-index: 1;
 }
 
 .errorStyles {

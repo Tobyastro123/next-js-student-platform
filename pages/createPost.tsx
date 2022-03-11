@@ -57,7 +57,9 @@ export default function CreateBlogPost(props: Props) {
             onChange={(event) => setStory(event.currentTarget.value)}
           />
 
-          <Button>Create a Post</Button>
+          <Button inverted color="violet">
+            Create a Post
+          </Button>
         </Form>
       </div>
     </Layout>

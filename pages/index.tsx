@@ -36,9 +36,10 @@ export default function BlogPostList(props: Props) {
       <div className={styles.createPostButtonContainer}>
         <Link href="/createPost" passHref>
           <Button
+            inverted
+            color="violet"
             animated="fade"
             className={styles.createPostButton}
-            color="violet"
           >
             <Button.Content visible>WRITE . .</Button.Content>
             <Button.Content hidden>TELL YOUR STORY</Button.Content>
