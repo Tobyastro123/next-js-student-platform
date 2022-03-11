@@ -95,16 +95,13 @@ export default function SingleBlogPost(props: Props) {
 // (ONLY FILES IN /pages) and gets imported
 // by Next.js
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  // const addedProductsOnCookies = context.req.cookies.addedProducts || '[]';
-
   const blogPostId = context.query.blogPostId;
+
+  // const user = await getUserById(parseInt(userId));
 
   const blogPosts = await getBlogPostsById(blogPostId);
 
   console.log('db', blogPosts);
-
-  // const addedProducts = JSON.parse(addedProductsOnCookies);
-  // if there is no addedProducts cookie on the browser we store to an [] otherwise we get the cookie value and parse it
 
   // Important:
   // - Always return an object from getServerSideProps
