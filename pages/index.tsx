@@ -17,6 +17,7 @@ export default function BlogPostList(props: Props) {
   if ('error' in props) {
     return (
       <Layout>
+        {/* <Layout userObject={props.userObject}></Layout> */}
         <Head>
           <title>Blog Post Error</title>
           <meta name="description" content="An error about an blog post " />

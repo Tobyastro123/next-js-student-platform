@@ -21,7 +21,7 @@ export default function ProtectedUser(props: Props) {
             <h1>Welcome</h1>
           </div>
           {/* <div> user id is {props.user.id}</div> */}
-          <div> {props.user.username}</div>
+          <div className={styles.userName}> {props.user.username}</div>
         </div>
       </div>
     </Layout>
