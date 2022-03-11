@@ -53,7 +53,7 @@ export default function SingleBlogPost(props: Props) {
 
   return (
     <Layout userObject={props.userObject}>
-      <div className={styles.singleProduct}>
+      <div className={styles.singlePost}>
         <div>
           <Head>
             <title>Single Post Page</title>
@@ -71,7 +71,7 @@ export default function SingleBlogPost(props: Props) {
                 Delete
               </Button>
             </div>
-            <Container>
+            <Container className={styles.singlePostContainer}>
               <HeaderContent as="h2"> {props.blogPosts.title}</HeaderContent>
               <Divider className={styles.dividerSinglePostPage} />
               <p className={styles.paragraphSinglePostPage}>

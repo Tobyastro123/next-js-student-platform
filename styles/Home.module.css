@@ -39,13 +39,17 @@
   font-family: 'Raleway', sans-serif;
 }
 
-.singleProduct {
+.singlePost {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 3rem;
   padding-bottom: 6rem;
   width: 150rem;
+}
+
+.singlePostContainer {
+  height: 100rem;
 }
 
 .paragraphSinglePostPage {
