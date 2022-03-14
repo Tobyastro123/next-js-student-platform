@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from 'next';
+import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -93,10 +93,17 @@ export default function SingleBlogPost(props: Props) {
 // getServerSideProps is exported from your files
 // (ONLY FILES IN /pages) and gets imported
 // by Next.js
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps(
+  context: GetServerSidePropsContext,
+): Promise<GetServerSidePropsResult<{ blogPosts?: BlogPost }>> {
   const blogPostId = context.query.blogPostId;
 
-  const blogPosts = await getBlogPostsById(blogPostId);
+  // Blog Post id is not correct type
+  if (!blogPostId || Array.isArray(blogPostId)) {
+    return { props: {} };
+  }
+
+  const blogPosts = await getBlogPostsById(parseInt(blogPostId));
 
   console.log('db', blogPosts);
 

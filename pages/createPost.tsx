@@ -5,6 +5,7 @@ import { Button, Form } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 
+// Define props
 type Props = {
   refreshUserProfile: () => void;
   userObject: { username: string };
