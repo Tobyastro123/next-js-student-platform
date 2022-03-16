@@ -109,6 +109,7 @@ export async function deleteBlogPostById(id: number) {
 export type User = {
   id: number;
   username: string;
+  image: string;
 };
 
 export type UserWithPasswordHash = User & {
@@ -166,15 +167,20 @@ export async function getUserWithPasswordHashByUsername(username: string) {
   return user && camelcaseKeys(user);
 }
 
-export async function createUser(username: string, passwordHash: string) {
+export async function createUser(
+  username: string,
+  image: string,
+  passwordHash: string,
+) {
   const [user] = await sql<[User]>`
     INSERT INTO users
-      (username, password_hash)
+      (username, image, password_hash)
     VALUES
-      (${username}, ${passwordHash})
+      (${username}, ${image}, ${passwordHash})
     RETURNING
       id,
-      username
+      username,
+      image
   `;
   return camelcaseKeys(user);
 }

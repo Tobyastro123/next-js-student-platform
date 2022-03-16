@@ -15,13 +15,36 @@ type Props = {
   refreshUserProfile: () => void;
   userObject: { username: string };
   csrfToken: string;
+
+  cloudinaryAPI: string;
 };
 
 export default function Register(props: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Errors>([]);
   const router = useRouter();
+
+  const uploadImage = async (event: any) => {
+    const files = event.currentTarget.files;
+    const formData = new FormData();
+    formData.append('file', files[0]);
+    formData.append('upload_preset', 'my-uploads');
+    setLoading(true);
+    const response = await fetch(
+      `	https://api.cloudinary.com/v1_1/${props.cloudinaryAPI}/image/upload`,
+      {
+        method: 'POST',
+        body: formData,
+      },
+    );
+    const file = await response.json();
+
+    setImage(file.secure_url);
+    setLoading(false);
+  };
 
   return (
     <Layout userObject={props.userObject}>
@@ -44,6 +67,7 @@ export default function Register(props: Props) {
                 username: username,
                 password: password,
                 csrfToken: props.csrfToken,
+                image: image,
               }),
             });
 
@@ -54,7 +78,9 @@ export default function Register(props: Props) {
               setErrors(registerResponseBody.errors);
               return;
             }
+
             props.refreshUserProfile();
+
             await router.push('/');
           }}
         >
@@ -78,7 +104,23 @@ export default function Register(props: Props) {
               />
             </label>
           </Form.Field>
-
+          <div>
+            <label htmlFor="picture">Image</label>
+            <input
+              id="file"
+              type="file"
+              required
+              placeholder="Upload an image"
+              onChange={uploadImage}
+            />
+            <div>
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <img src={image} className="mt-4" alt="upload" />
+              )}
+            </div>
+          </div>
           <Button>Register</Button>
         </Form>
       </div>
@@ -123,9 +165,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
 
+  const cloudinaryAPI = process.env.CLOUDINARY_KEY;
+
   // 3. otherwise render the page
   return {
     props: {
+      cloudinaryAPI,
       csrfToken: createCsrfToken(),
     },
   };

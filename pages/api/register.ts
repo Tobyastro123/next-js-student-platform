@@ -10,13 +10,14 @@ import {
   User,
 } from '../../util/database';
 
-type RegisterRequestBody = {
+export type RegisterRequestBody = {
   username: string;
   password: string;
+  image: string;
   csrfToken: string;
 };
 
-type RegisterNextApiRequest = Omit<NextApiRequest, 'body'> & {
+export type RegisterNextApiRequest = Omit<NextApiRequest, 'body'> & {
   body: RegisterRequestBody;
 };
 
@@ -34,6 +35,8 @@ export default async function registerHandler(
       !request.body.username ||
       typeof request.body.password !== 'string' ||
       !request.body.password ||
+      typeof request.body.image !== 'string' ||
+      !request.body.image ||
       typeof request.body.csrfToken !== 'string' ||
       !request.body.csrfToken
     ) {
@@ -73,9 +76,14 @@ export default async function registerHandler(
       });
       return; // Important: will prevent "Headers already sent" error
     }
-
+    // const image = request.body.image;
     const passwordHash = await bcrypt.hash(request.body.password, 12);
-    const user = await createUser(request.body.username, passwordHash);
+    const user: User = await createUser(
+      request.body.username,
+      // i think i have to pass the image here for each user from database
+      request.body.image,
+      passwordHash,
+    );
 
     // 1. Create a unique token
     const token = crypto.randomBytes(64).toString('base64');

@@ -6,7 +6,7 @@ import { getUserByValidSessionToken } from '../../util/database';
 
 type Props = {
   userObject: { username: string };
-  user: { id: number; username: string };
+  user: { id: number; username: string; image: string };
 };
 export default function ProtectedUser(props: Props) {
   return (
@@ -20,7 +20,7 @@ export default function ProtectedUser(props: Props) {
           <div>
             <h1>Welcome</h1>
           </div>
-          {/* <div> user id is {props.user.id}</div> */}
+          <div> user id is {props.user.image}</div>
           <div className={styles.userName}> {props.user.username}</div>
         </div>
       </div>
