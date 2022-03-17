@@ -53,7 +53,11 @@ export default function BlogPostList(props: Props) {
           {props.blogPosts.map((blogPost) => {
             return (
               <Card key={`blogPost-${blogPost.id}`} className={styles.card}>
-                <Image src={blogPost.image} alt="" />
+                <Image
+                  src={blogPost.image}
+                  className={styles.cardImage}
+                  alt=""
+                />
                 <Link href={`/blogPosts/${blogPost.id}`} passHref>
                   <Card.Content>
                     <Card.Header className={styles.cardHeader}>

@@ -1,11 +1,9 @@
-import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import { RegisterResponseBody } from './api/register';
 
 // Define props
 type Props = {
