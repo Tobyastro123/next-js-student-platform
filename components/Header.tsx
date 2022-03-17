@@ -1,6 +1,7 @@
 import { Interpolation, Theme } from '@emotion/react';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
+import { Image } from 'semantic-ui-react';
 import styles from '../styles/Home.module.css';
 import { User } from '../util/database';
 
@@ -73,7 +74,15 @@ export default function Header(props: Props) {
           </>
         )}
         {props.userObject && (
-          <div className={styles.username}>{props.userObject.username}</div>
+          <>
+            <div className={styles.username}>{props.userObject.username}</div>
+            <div>
+              <Image
+                className={styles.userPhotoInHeader}
+                src={props.userObject.image}
+              />
+            </div>
+          </>
         )}
         {/* </div> */}
       </div>

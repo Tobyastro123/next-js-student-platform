@@ -326,6 +326,13 @@
   padding-left: 5rem;
 }
 
+.userPhotoInHeader {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  margin-left: 1rem;
+}
+
 .profilePage {
   display: flex;
   align-items: center;
