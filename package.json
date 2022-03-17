@@ -15,7 +15,6 @@
     "@emotion/react": "^11.8.1",
     "bcrypt": "^5.0.1",
     "camelcase-keys": "^7.0.2",
-    "cloudinary": "^1.28.1",
     "cookie": "^0.4.2",
     "csrf": "^3.1.0",
     "dotenv-cli": "^5.0.0",
