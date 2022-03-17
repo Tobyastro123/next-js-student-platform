@@ -5,31 +5,27 @@ import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
 
-type Props =
-  | {
-      blogPosts: BlogPost[];
-    }
-  | {
-      error: string;
-    };
+type Props = {
+  blogPosts: BlogPost[];
+  userObject: { username: string };
+};
 
 export default function BlogPostList(props: Props) {
-  if ('error' in props) {
-    return (
-      <Layout>
-        {/* <Layout userObject={props.userObject}></Layout> */}
-        <Head>
-          <title>Blog Post Error</title>
-          <meta name="description" content="An error about an blog post " />
-        </Head>
-        <h1>Blog Posts Error</h1>
-        {props.error}
-      </Layout>
-    );
-  }
+  // // if ('error' in props) {
+  // return (
+  //   <Layout>
+  //     {/* <Layout userObject={props.userObject}></Layout> */}
+  //     <Head>
+  //       <title>Blog Post Error</title>
+  //       <meta name="description" content="An error about an blog post " />
+  //     </Head>
+  //     <h1>Blog Posts Error</h1>
+  //     {/* {props.error} */}
+  //   </Layout>
+  // );
 
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <Head>
         <title>Posts</title>
         <meta name="description" content="These are my posts" />
