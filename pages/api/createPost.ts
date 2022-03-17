@@ -6,7 +6,11 @@ export default async function createBlogPostHandler(
   response: NextApiResponse,
 ) {
   if (request.method === 'POST') {
-    const post = await createBlogPost(request.body.title, request.body.story);
+    const post = await createBlogPost(
+      request.body.title,
+      request.body.image,
+      request.body.story,
+    );
 
     response.status(201).json({ post: post });
     return;

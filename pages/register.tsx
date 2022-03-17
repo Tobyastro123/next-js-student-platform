@@ -46,6 +46,37 @@ export default function Register(props: Props) {
     setLoading(false);
   };
 
+  const AddUserWithImage = async () => {
+    const registerResponse = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        csrfToken: props.csrfToken,
+        image: image,
+      }),
+    });
+
+    const registerResponseBody =
+      (await registerResponse.json()) as RegisterResponseBody;
+
+    if ('errors' in registerResponseBody) {
+      setErrors(registerResponseBody.errors);
+      return;
+    }
+
+    props.refreshUserProfile();
+
+    // await router.push('/');
+  };
+  const onClickAddUser = () => {
+    AddUserWithImage();
+    router.push('/');
+  };
+
   return (
     <Layout userObject={props.userObject}>
       <Head>
@@ -55,34 +86,34 @@ export default function Register(props: Props) {
 
       <div className={styles.loginContainer}>
         <Form
-          onSubmit={async (event) => {
-            event.preventDefault();
+        // onSubmit={async (event) => {
+        //   event.preventDefault();
 
-            const registerResponse = await fetch('/api/register', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                username: username,
-                password: password,
-                csrfToken: props.csrfToken,
-                image: image,
-              }),
-            });
+        //   const registerResponse = await fetch('/api/register', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //       username: username,
+        //       password: password,
+        //       csrfToken: props.csrfToken,
+        //       image: image,
+        //     }),
+        //   });
 
-            const registerResponseBody =
-              (await registerResponse.json()) as RegisterResponseBody;
+        //   const registerResponseBody =
+        //     (await registerResponse.json()) as RegisterResponseBody;
 
-            if ('errors' in registerResponseBody) {
-              setErrors(registerResponseBody.errors);
-              return;
-            }
+        //   if ('errors' in registerResponseBody) {
+        //     setErrors(registerResponseBody.errors);
+        //     return;
+        //   }
 
-            props.refreshUserProfile();
+        //   props.refreshUserProfile();
 
-            await router.push('/');
-          }}
+        //   await router.push('/');
+        // }}
         >
           <Form.Field>
             <label>
@@ -121,7 +152,7 @@ export default function Register(props: Props) {
               )}
             </div>
           </div>
-          <Button>Register</Button>
+          <Button onClick={onClickAddUser}>Register</Button>
         </Form>
       </div>
       <div className={styles.errorStyles}>

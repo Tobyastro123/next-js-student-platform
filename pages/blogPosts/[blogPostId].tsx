@@ -2,7 +2,13 @@ import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Button, Container, Divider, HeaderContent } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Divider,
+  HeaderContent,
+  Image,
+} from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Home.module.css';
 import { BlogPost, getBlogPostsById } from '../../util/database';
@@ -16,14 +22,14 @@ type Props = {
 
 export default function SingleBlogPost(props: Props) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [title, setTitle] = useState('');
-  const [story, setStory] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [story, setStory] = useState('');
 
   // State Variable with the id of the animal on editMode
-  const [idEditPostId, setIdEditPostId] = useState<number>();
+  // const [idEditPostId, setIdEditPostId] = useState<number>();
   // State Variables for the on Edit inputs
-  const [titleOnEdit, setTitleOnEdit] = useState('');
-  const [storyOnEdit, setStoryOnEdit] = useState('');
+  // const [titleOnEdit, setTitleOnEdit] = useState('');
+  // const [storyOnEdit, setStoryOnEdit] = useState('');
 
   const [error, setError] = useState('');
 
@@ -71,6 +77,11 @@ export default function SingleBlogPost(props: Props) {
               </Button>
             </div>
             <Container className={styles.singlePostContainer}>
+              <Image
+                src={props.blogPosts.image}
+                alt=""
+                className={styles.singlePostImage}
+              />
               <HeaderContent as="h2"> {props.blogPosts.title}</HeaderContent>
               <Divider className={styles.dividerSinglePostPage} />
               <p className={styles.paragraphSinglePostPage}>

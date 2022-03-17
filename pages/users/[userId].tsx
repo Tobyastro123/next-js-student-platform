@@ -37,8 +37,8 @@ export default function singleUserDetail(props: Props) {
       </Head>
       <div className={styles.profileHeader}>
         <h1>Welcome, {props.user.username}</h1>
-        {/* <div>id: {props.user.id}</div> */}
-        {/* <div>username: {props.user.username}</div> */}
+        <div>id: {props.user.image}</div>
+        <div>username: {props.user.username}</div>
       </div>
     </Layout>
   );

@@ -47,6 +47,7 @@ export type BlogPost = {
   id: number;
   title: string;
   story: string;
+  image: string;
 };
 
 export async function getBlogPosts() {
@@ -63,12 +64,16 @@ export async function getBlogPostsById(id: number) {
   return camelcaseKeys(blogPost);
 }
 
-export async function createBlogPost(title: string, story: string) {
+export async function createBlogPost(
+  title: string,
+  story: string,
+  image: string,
+) {
   const [post] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
-      (title, story)
+      (title, image, story)
     VALUES
-      (${title}, ${story})
+      (${title}, ${story},  ${image})
     RETURNING
       id,
       title
@@ -120,7 +125,8 @@ export async function getUserById(id: number) {
   const [user] = await sql<[User | undefined]>`
     SELECT
       id,
-      username
+      username,
+      image
     FROM
       users
     WHERE

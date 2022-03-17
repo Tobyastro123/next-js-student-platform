@@ -69,6 +69,10 @@
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
+.singlePostImage {
+  width: 42rem;
+  height: 25rem;
+}
 
 .aboutHomePage {
   display: flex;

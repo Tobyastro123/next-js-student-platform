@@ -1,5 +1,6 @@
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
+import { Image } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Home.module.css';
 import { getUserByValidSessionToken } from '../../util/database';
@@ -20,7 +21,7 @@ export default function ProtectedUser(props: Props) {
           <div>
             <h1>Welcome</h1>
           </div>
-          <div> user id is {props.user.image}</div>
+          <Image src={props.user.image} alt="" />
           <div className={styles.userName}> {props.user.username}</div>
         </div>
       </div>
