@@ -116,6 +116,13 @@
   margin: 10rem 25rem 10rem 25rem;
 }
 
+.createPostImage {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 15rem;
+  height: 10rem;
+}
+
 .formTextArea {
   height: 20rem;
 }
@@ -309,6 +316,11 @@
   height: 30rem;
   border-radius: 0.5rem;
 }
+.registerUserImage {
+  margin-top: 0.5rem;
+  width: 8rem;
+  height: 5rem;
+}
 
 .profileHeader {
   padding-left: 5rem;
@@ -320,6 +332,13 @@
   justify-content: center;
   padding-top: 5rem;
   padding-right: 55rem;
+}
+
+.userProfileImage {
+  margin-top: 2rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 10rem;
 }
 
 .userName {

@@ -21,7 +21,11 @@ export default function ProtectedUser(props: Props) {
           <div>
             <h1>Welcome</h1>
           </div>
-          <Image src={props.user.image} alt="" />
+          <Image
+            src={props.user.image}
+            alt=""
+            className={styles.userProfileImage}
+          />
           <div className={styles.userName}> {props.user.username}</div>
         </div>
       </div>

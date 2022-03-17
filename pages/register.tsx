@@ -148,11 +148,11 @@ export default function Register(props: Props) {
               {loading ? (
                 <p>Loading...</p>
               ) : (
-                <img src={image} className="mt-4" alt="upload" />
+                <img src={image} className={styles.registerUserImage} alt="" />
               )}
             </div>
           </div>
-          <Button onClick={onClickAddUser}>Register</Button>
+          <Button>Register</Button>
         </Form>
       </div>
       <div className={styles.errorStyles}>

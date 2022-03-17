@@ -86,7 +86,6 @@ export default function CreateBlogPost(props: Props) {
             <input
               id="file"
               type="file"
-              required
               placeholder="Upload an image"
               onChange={uploadImage}
             />
@@ -94,7 +93,7 @@ export default function CreateBlogPost(props: Props) {
               {loading ? (
                 <p>Loading...</p>
               ) : (
-                <img src={image} className="mt-4" alt="upload" />
+                <img src={image} className={styles.createPostImage} alt="" />
               )}
             </div>
           </div>
