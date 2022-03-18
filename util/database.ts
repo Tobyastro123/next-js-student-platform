@@ -110,6 +110,23 @@ export async function deleteBlogPostById(id: number) {
   return post && camelcaseKeys(post);
 }
 
+export async function getPostsFromUserId(userId: number) {
+  if (!userId) return undefined;
+
+  const posts = await sql<[BlogPost]>`
+    SELECT
+      *
+    FROM
+      blogPosts
+    WHERE
+      user_id = ${userId};
+  `;
+
+  return posts.map((post) => {
+    return camelcaseKeys(post);
+  });
+}
+
 // User
 export type User = {
   id: number;

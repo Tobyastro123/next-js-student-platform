@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
 
 type Props = {
+  // refreshUserProfile: () => void;
   blogPosts: BlogPost[];
   userObject: { username: string };
 };
@@ -23,6 +24,7 @@ export default function BlogPostList(props: Props) {
   //     {/* {props.error} */}
   //   </Layout>
   // );
+  // props.refreshUserProfile();
 
   return (
     <Layout userObject={props.userObject}>
@@ -48,7 +50,11 @@ export default function BlogPostList(props: Props) {
         <Card.Group itemsPerRow={3}>
           {props.blogPosts.map((blogPost) => {
             return (
-              <Card key={`blogPost-${blogPost.id}`} className={styles.card}>
+              <Card
+                color="blue"
+                key={`blogPost-${blogPost.id}`}
+                className={styles.card}
+              >
                 <Image
                   src={blogPost.image}
                   className={styles.cardImage}

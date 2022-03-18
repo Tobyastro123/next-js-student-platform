@@ -6,12 +6,12 @@
 }
 
 .card {
-  width: 35rem;
-  height: 30rem;
+  width: 32rem;
+  height: 25rem;
 }
 
 .cardImage {
-  height: 20rem;
+  height: 15rem;
 }
 
 .cardHeader {
@@ -34,8 +34,8 @@
   justify-content: flex-end;
   padding-right: 1rem;
   border-bottom: 1px solid #f4f1f5;
-  padding-bottom: 2rem;
-  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* padding-top: 1rem; */
 }
 
 .navBarContainer a {
@@ -329,7 +329,7 @@
 .userPhotoInHeader {
   width: 3rem;
   height: 3rem;
-  border-radius: 3rem;
+  border-radius: 1rem;
   margin-left: 1rem;
 }
 
@@ -345,7 +345,7 @@
   margin-top: 2rem;
   width: 15rem;
   height: 15rem;
-  border-radius: 10rem;
+  border-radius: 3rem;
 }
 
 .userName {
