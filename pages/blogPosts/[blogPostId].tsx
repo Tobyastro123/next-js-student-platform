@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import {
   Button,
+  Card,
   Container,
   Divider,
   HeaderContent,
+  Icon,
   Image,
 } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
@@ -77,6 +79,10 @@ export default function SingleBlogPost(props: Props) {
               </Button>
             </div>
             <Container className={styles.singlePostContainer}>
+              <Card.Content extra>
+                <Icon name="pencil alternate" />
+                {props.blogPosts.author}
+              </Card.Content>
               <Image
                 src={props.blogPosts.image}
                 alt=""

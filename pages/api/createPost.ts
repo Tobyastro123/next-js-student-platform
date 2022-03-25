@@ -8,8 +8,9 @@ export default async function createBlogPostHandler(
   if (request.method === 'POST') {
     const post = await createBlogPost(
       request.body.title,
-      request.body.image,
       request.body.story,
+      request.body.author,
+      request.body.image,
     );
 
     response.status(201).json({ post: post });

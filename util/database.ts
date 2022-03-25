@@ -47,6 +47,7 @@ export type BlogPost = {
   id: number;
   title: string;
   story: string;
+  author: string;
   image: string;
 };
 
@@ -67,13 +68,14 @@ export async function getBlogPostsById(id: number) {
 export async function createBlogPost(
   title: string,
   story: string,
+  author: string,
   image: string,
 ) {
   const [post] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
-      (title, image, story)
+      (title, story, author, image)
     VALUES
-      (${title}, ${story},  ${image})
+      (${title}, ${story}, ${author}, ${image})
     RETURNING
       id,
       title
