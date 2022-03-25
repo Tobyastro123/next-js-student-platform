@@ -4,7 +4,8 @@ exports.up = async (sql) => {
 		CREATE TABLE blogPosts (
 			id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 			title varchar(120) NOT NULL,
-			story varchar(330) NOT NULL,
+			story varchar(9999) NOT NULL,
+			author varchar(120) NOT NULL,
 			image VARCHAR(100) NOT NULL
 
 		);
