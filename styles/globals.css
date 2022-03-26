@@ -24,24 +24,24 @@ a {
 
 @layer base {
   body {
-    @apply p-0 m-0 h-screen font-serif text-gray-900 bg-gray-100;
+    @apply p-0 m-0 h-screen font-serif text-gray-900 bg-gray-100 z-50;
   }
 }
 
 @layer components {
   /* header */
   .header {
-    @apply h-[10vh] flex items-center px-10 py-4 md:px-20 text-lg justify-between;
+    @apply h-[10vh] flex items-center px-10 py-4 md:px-20 text-lg justify-between z-50;
   }
 
   .header > ul {
-    @apply justify-center flex-1 hidden space-x-5 md:flex;
+    @apply justify-center flex-1 hidden space-x-5 md:flex z-50;
   }
 
   /* text container */
 
   .textContainer {
-    @apply flex flex-col h-full px-3 py-28 md:px-52 z-40;
+    @apply flex flex-col h-full px-3 py-28 mt-12 md:px-52 z-40;
   }
   .textContainer-top {
     @apply flex pl-24 pt-16 items-center justify-between text-lg md:text-5xl font-bold tracking-wider z-40;
@@ -67,7 +67,7 @@ a {
 
   /* bottle it like barcelona :: */
   .imageWrapper {
-    @apply absolute top-0 left-0 grid w-full;
+    @apply absolute top-0 left-0 grid w-full mt-8;
   }
   .image {
     @apply h-[600px] w-[650px] md:h-[750px] md:w-[720px] object-contain ml-[40rem] pb-[7rem];
