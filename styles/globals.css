@@ -41,28 +41,39 @@ a {
   /* text container */
 
   .textContainer {
-    @apply flex flex-col h-full px-3 py-28 md:px-52;
+    @apply flex flex-col h-full px-3 py-28 md:px-52 z-40;
   }
   .textContainer-top {
-    @apply flex pl-44 pt-16 items-center justify-between text-lg md:text-4xl font-bold tracking-wider;
+    @apply flex pl-24 pt-16 items-center justify-between text-lg md:text-5xl font-bold tracking-wider z-40;
   }
   .textContainer-middle {
-    @apply grid flex-1 place-items-center;
+    @apply grid flex-1 place-items-center z-40;
   }
   .textContainer-middle > span {
-    @apply text-5xl font-black tracking-wider md:text-9xl;
+    @apply text-5xl font-black tracking-wider md:text-9xl z-40;
   }
   .textContainer-bottom {
-    @apply flex pb-24 mt-8 items-center justify-between text-stone-900 font-serif;
+    @apply flex pb-24 mt-8 items-center justify-between text-stone-900 font-serif z-40;
   }
   .textContainer-bottom > span {
-    @apply text-sm text-purple-600 font-bold md:text-3xl;
+    @apply text-sm text-purple-600 font-bold md:text-3xl z-40;
   }
   .textContainer-bottom > p {
-    @apply text-sm font-bold md:text-5xl;
+    @apply text-sm font-bold md:text-5xl z-40;
   }
   .textContainer-bottom > p > span {
-    @apply text-green-400;
+    @apply text-green-400 z-40;
+  }
+
+  /* bottle it like barcelona :: */
+  .imageWrapper {
+    @apply absolute top-0 left-0 grid w-full;
+  }
+  .image {
+    @apply h-[600px] w-[650px] md:h-[750px] md:w-[720px] object-contain ml-[40rem] pb-[7rem];
+  }
+  .image1 {
+    @apply h-[600px] w-[650px] md:h-[450px] md:w-[600px] object-contain ml-52 mt-60;
   }
 }
 

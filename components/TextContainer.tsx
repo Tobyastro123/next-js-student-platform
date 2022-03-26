@@ -11,7 +11,7 @@ const TextContainer = () => {
     >
       {/* upper */}
       <div className="textContainer-top">
-        <motion.span variants={fadeIn()} className="text-violet-500 ">
+        <motion.span variants={fadeIn()} className="text-state-500 ">
           SHARING
         </motion.span>
       </div>

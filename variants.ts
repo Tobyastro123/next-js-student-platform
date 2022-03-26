@@ -27,7 +27,7 @@ export const staggerContainer: Variants = {
   },
 };
 
-export const bottleWrapper: Variants = {
+export const imageWrapper: Variants = {
   initial: {
     y: -1000,
   },
@@ -37,58 +37,49 @@ export const bottleWrapper: Variants = {
       delay: 2.6,
       duration: 0.8,
       type: 'spring',
+      stiffness: 50,
     },
   },
 };
-
-export const bottle: Variants = {
+export const imageWrapper1: Variants = {
   initial: {
-    y: 0,
+    x: -1000,
   },
   animate: {
-    y: [30, 0, 30],
-    transition: {
-      duration: 1.6,
-      ease: 'linear',
-      repeat: Infinity,
-    },
-  },
-};
-
-export const leafWrapper: Variants = {
-  initial: {
-    y: -800,
-  },
-  animate: {
-    y: 0,
-    transition: {
-      duration: 0.4,
-
-      type: 'spring',
-    },
-  },
-};
-export const leaf: Variants = {
-  initial: {
     x: 0,
-  },
-  animate: (i: number) => ({
-    x: [20, 0, 20],
     transition: {
-      delay: 2,
-      duration: 1 * i,
+      delay: 2.6,
+      duration: 0.2,
+      type: 'spring',
+      stiffness: 50,
+    },
+  },
+};
+
+export const image: Variants = {
+  initial: {
+    y: 0,
+  },
+  animate: {
+    y: [10, 0, 10],
+    transition: {
+      duration: 4,
       ease: 'linear',
       repeat: Infinity,
     },
-  }),
+  },
 };
 
-export const leavesContainer: Variants = {
-  initial: {},
+export const image1: Variants = {
+  initial: {
+    y: 0,
+  },
   animate: {
+    y: [10, 0, 10],
     transition: {
-      delayChildren: 3,
-      staggerChildren: 0.2,
+      duration: 4,
+      ease: 'linear',
+      repeat: Infinity,
     },
   },
 };
