@@ -2,7 +2,12 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import TextContainer from '../components/TextContainer';
 import { motion } from 'framer-motion';
-import { image, image1, imageWrapper, imageWrapper1 } from '../variants';
+import {
+  imageLandingPage,
+  imageLandingPage1,
+  imageWrapper,
+  imageWrapper1,
+} from '../variants';
 
 export default function Home() {
   return (
@@ -23,8 +28,8 @@ export default function Home() {
         >
           <motion.img
             src="/images/people.jpeg"
-            variants={image}
-            className="image"
+            variants={imageLandingPage}
+            className="imageLandingPage"
           />
         </motion.div>
         <motion.div
@@ -35,8 +40,8 @@ export default function Home() {
         >
           <motion.img
             src="/images/person.jpg"
-            variants={image1}
-            className="image1"
+            variants={imageLandingPage1}
+            className="imageLandingPage1"
           />
         </motion.div>
       </div>

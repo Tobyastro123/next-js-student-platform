@@ -47,7 +47,7 @@ export default function BlogPostList(props: Props) {
       </div>
       <div className={styles.cardContainer}>
         {/* <Grid centered> */}
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={4}>
           {props.blogPosts.map((blogPost) => {
             return (
               <Card

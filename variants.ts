@@ -56,7 +56,7 @@ export const imageWrapper1: Variants = {
   },
 };
 
-export const image: Variants = {
+export const imageLandingPage: Variants = {
   initial: {
     y: 0,
   },
@@ -70,7 +70,7 @@ export const image: Variants = {
   },
 };
 
-export const image1: Variants = {
+export const imageLandingPage1: Variants = {
   initial: {
     y: 0,
   },
