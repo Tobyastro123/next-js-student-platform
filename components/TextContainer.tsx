@@ -11,21 +11,21 @@ const TextContainer = () => {
     >
       {/* upper */}
       <div className="textContainer-top">
-        <motion.span variants={fadeIn()} className="text-purple-600 ">
-          TO
+        <motion.span variants={fadeIn()} className="text-violet-500 ">
+          SHARING
         </motion.span>
       </div>
       {/* //text */}
       <div className="textContainer-middle">
         <motion.span variants={fadeIn()} initial="initial" animate="animate">
-          WELCOME
+          KNOWLEDGE
         </motion.span>
       </div>
       {/* lower */}
       <div className="textContainer-bottom">
         <motion.span variants={fadeIn()} />
         <motion.p variants={fadeIn()}>
-          STUDENT <span> FOR </span> STUDENT!
+          STUDENT <span> FOR </span> STUDENT
         </motion.p>
       </div>
     </motion.div>

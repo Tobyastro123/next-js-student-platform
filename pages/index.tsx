@@ -1,15 +1,17 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Head from 'next/head';
+import Layout from '../components/Layout';
 import TextContainer from '../components/TextContainer';
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <TextContainer />
-      <main>
-        <Footer />
-      </main>
-    </div>
+    <Layout>
+      <Head>
+        <title>Home Page</title>
+        <meta name="description" content="Welcome to homepage" />
+      </Head>
+      <div>
+        <TextContainer />
+      </div>
+    </Layout>
   );
 }

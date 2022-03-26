@@ -44,7 +44,7 @@ a {
     @apply flex flex-col h-full px-3 py-28 md:px-52;
   }
   .textContainer-top {
-    @apply flex pl-52 pt-16 items-center justify-between text-lg md:text-3xl;
+    @apply flex pl-44 pt-16 items-center justify-between text-lg md:text-4xl font-bold tracking-wider;
   }
   .textContainer-middle {
     @apply grid flex-1 place-items-center;
@@ -53,16 +53,16 @@ a {
     @apply text-5xl font-black tracking-wider md:text-9xl;
   }
   .textContainer-bottom {
-    @apply flex pb-24 mt-8 items-center justify-between;
+    @apply flex pb-24 mt-8 items-center justify-between text-stone-900 font-serif;
   }
   .textContainer-bottom > span {
-    @apply text-sm text-purple-600 font-semibold md:text-3xl;
+    @apply text-sm text-purple-600 font-bold md:text-3xl;
   }
   .textContainer-bottom > p {
-    @apply text-sm font-semibold md:text-5xl;
+    @apply text-sm font-bold md:text-5xl;
   }
   .textContainer-bottom > p > span {
-    @apply text-green-600;
+    @apply text-green-400;
   }
 }
 

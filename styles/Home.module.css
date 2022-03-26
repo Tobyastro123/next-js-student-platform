@@ -7,35 +7,21 @@
 
 .card {
   width: 32rem;
-  height: 28rem;
+  height: 25rem;
 }
 
 .cardImage {
-  height: 15rem;
+  height: 14rem;
 }
-
-.cardHeader {
-  margin-bottom: 2rem;
-}
-
-/* .logo {
-  position: absolute;
-  margin-bottom: 0;
-  margin-right: 44rem;
-  font-family: 'Sacramento', cursive !important;
-  font-size: 2.2rem;
-  border-bottom: 0.1px solid #e05d12;
-  border-radius: 1rem;
-} */
 
 .navBarContainer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-right: 1rem;
   border-bottom: 1px solid #f4f1f5;
   padding-bottom: 1rem;
-  /* padding-top: 1rem; */
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .navBarContainer a {
@@ -270,16 +256,6 @@
   width: 7rem;
   margin-left: 4.5rem;
 }
-
-/* .footer {
-  border-top: 1px solid #f0ecf1;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  height: 60px;
-  width: 100%;
-  margin-top: 5rem;
-} */
 
 /* Footer */
 

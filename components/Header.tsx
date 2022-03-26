@@ -55,18 +55,18 @@ export default function Header(props: Props) {
       <div className={styles.navBarContainer}>
         <div className={styles.logo}>
           <Link href="/" passHref>
-            <a>Student for Student</a>
+            <a>HOME</a>
           </Link>
         </div>
         {/* <div className={styles.navBar}> */}
         <Link href="/posts">
           <a>READ POSTS</a>
         </Link>
-        <Link href="users/protected-user">
-          <a>PROFILE</a>
-        </Link>
         <Link href="/createPost">
           <a>CREATE A POST</a>
+        </Link>
+        <Link href="users/protected-user">
+          <a>PROFILE</a>
         </Link>
 
         <div className={styles.usernameSpace} />
