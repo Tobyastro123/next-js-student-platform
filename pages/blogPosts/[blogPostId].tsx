@@ -55,7 +55,7 @@ export default function SingleBlogPost(props: Props) {
 
     setPosts(newPostsList);
     props.refreshUserProfile();
-    await router.push('/');
+    await router.push('/posts');
   }
 
   return (

@@ -64,14 +64,14 @@ export default function CreateBlogPost(props: Props) {
             });
 
             props.refreshUserProfile();
-            await router.push('/');
+            await router.push('/posts');
           }}
         >
           <Form.Field>
             <label>
               <input
                 value={title}
-                placeholder="Enter title"
+                placeholder="Title"
                 onChange={(event) => setTitle(event.currentTarget.value)}
               />
             </label>
@@ -103,7 +103,7 @@ export default function CreateBlogPost(props: Props) {
             <label>
               <input
                 value={author}
-                placeholder="Enter author"
+                placeholder="Author"
                 onChange={(event) => setAuthor(event.currentTarget.value)}
               />
             </label>

@@ -7,11 +7,16 @@
 
 .card {
   width: 32rem;
-  height: 25rem;
+  height: 27rem;
 }
 
 .cardImage {
   height: 14rem;
+}
+
+.cardHeader {
+  width: 32rem;
+  margin-left: -5rem;
 }
 
 .navBarContainer {
@@ -100,7 +105,7 @@
 }
 
 .createPostContainer {
-  margin: 10rem 25rem 10rem 25rem;
+  margin: 5rem 25rem 10rem 25rem;
 }
 
 .createPostImage {
@@ -352,7 +357,7 @@
 
 .createPostButton {
   height: 2.5rem;
-  width: 9rem;
+  width: 10rem;
   font-family: 'Raleway', sans-serif;
   font-size: 0.9rem !important;
 }
