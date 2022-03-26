@@ -13,3 +13,57 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Landing page */
+
+/* if vs code shows warning , go to setting -> CSS> Lint:Unknown At Rules -> select ignore */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply p-0 m-0 h-screen font-serif text-gray-900 bg-gray-100;
+  }
+}
+
+@layer components {
+  /* header */
+  .header {
+    @apply h-[10vh] flex items-center px-10 py-4 md:px-20 text-lg justify-between;
+  }
+
+  .header > ul {
+    @apply justify-center flex-1 hidden space-x-5 md:flex;
+  }
+
+  /* text container */
+
+  .textContainer {
+    @apply flex flex-col h-full px-3 py-28 md:px-52;
+  }
+  .textContainer-top {
+    @apply flex pl-52 pt-16 items-center justify-between text-lg md:text-3xl;
+  }
+  .textContainer-middle {
+    @apply grid flex-1 place-items-center;
+  }
+  .textContainer-middle > span {
+    @apply text-5xl font-black tracking-wider md:text-9xl;
+  }
+  .textContainer-bottom {
+    @apply flex pb-24 mt-8 items-center justify-between;
+  }
+  .textContainer-bottom > span {
+    @apply text-sm text-purple-600 font-semibold md:text-3xl;
+  }
+  .textContainer-bottom > p {
+    @apply text-sm font-semibold md:text-5xl;
+  }
+  .textContainer-bottom > p > span {
+    @apply text-green-600;
+  }
+}
+
+/* end of landing page */

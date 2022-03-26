@@ -4,6 +4,8 @@ import { AnchorHTMLAttributes } from 'react';
 import { Image } from 'semantic-ui-react';
 import styles from '../styles/Home.module.css';
 import { User } from '../util/database';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variants';
 
 type Props = {
   userObject?: User;
@@ -20,7 +22,12 @@ function Anchor({
 
 export default function Header(props: Props) {
   return (
-    <nav>
+    <motion.nav
+      variants={fadeIn('down')}
+      initial="initial"
+      animate="animate"
+      className="header"
+    >
       <div id={styles.menuToggle}>
         <input type="checkbox" />
         <span />
@@ -52,7 +59,9 @@ export default function Header(props: Props) {
           </Link>
         </div>
         {/* <div className={styles.navBar}> */}
-
+        <Link href="/posts">
+          <a>READ POSTS</a>
+        </Link>
         <Link href="users/protected-user">
           <a>PROFILE</a>
         </Link>
@@ -86,6 +95,6 @@ export default function Header(props: Props) {
         )}
         {/* </div> */}
       </div>
-    </nav>
+    </motion.nav>
   );
 }
