@@ -129,6 +129,62 @@ export async function getPostsFromUserId(userId: number) {
   });
 }
 
+// Comments
+
+export type Comment = {
+  id: number;
+  blogPostId?: number;
+  userId: number;
+  comment?: string;
+  image: string;
+};
+
+export async function createComment(
+  comment: string,
+  userId: number,
+  blogPostId: number,
+  username: string,
+  image: string,
+) {
+  const [commentId] = await sql<[Comment]>`
+    INSERT INTO comments
+      (comment, user_id, post_id, username, image)
+    VALUES
+      (${comment}, ${userId}, ${blogPostId}, ${username}, ${image})
+    RETURNING
+     id,
+     comment,
+     user_id,
+     post_id,
+     username,
+     image
+  `;
+  return camelcaseKeys(commentId);
+}
+
+export async function getCommentByPostId(id: number) {
+  const comments = await sql<[Comment]>`
+  SELECT
+   *
+  FROM
+    comments
+  WHERE
+    post_id = ${id}
+`;
+  return comments;
+}
+
+export async function deleteCommentById(id: number) {
+  const [deletedComment] = await sql<[Comment]>`
+    DELETE FROM
+      comments
+    WHERE
+     id = ${id}
+    RETURNING *
+  `;
+  return deletedComment && camelcaseKeys(deletedComment);
+}
+
 // User
 export type User = {
   id: number;

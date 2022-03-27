@@ -5,6 +5,7 @@ exports.up = async (sql) => {
 		comment varchar (600) NOT NULL,
 		user_id integer REFERENCES users (id) ON DELETE CASCADE,
 		username varchar(100) REFERENCES users (username) ON DELETE CASCADE,
+		image VARCHAR(100) REFERENCES users (image) ON DELETE CASCADE,
 		post_id integer REFERENCES blogPosts (id) ON DELETE CASCADE
 	);
 	`;

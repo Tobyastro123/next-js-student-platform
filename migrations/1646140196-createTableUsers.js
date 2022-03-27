@@ -3,7 +3,7 @@ exports.up = async (sql) => {
     CREATE TABLE users (
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       username varchar(30) NOT NULL UNIQUE,
-      image VARCHAR(100) NOT NULL,
+      image VARCHAR(100) NOT NULL UNIQUE,
       password_hash varchar(60) NOT NULL
     );
   `;

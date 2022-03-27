@@ -44,8 +44,12 @@
   align-items: center;
   justify-content: center;
   padding-top: 3rem;
-  padding-bottom: 6rem;
+  /* padding-bottom: 3rem; */
   width: 150rem;
+}
+
+.commentForm {
+  width: 47rem;
 }
 
 .singlePostContainer {

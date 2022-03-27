@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import 'semantic-ui-css/semantic.min.css';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState();
@@ -18,6 +18,10 @@ function MyApp({ Component, pageProps }) {
 
     setUser(data.user);
   }, []);
+
+  useEffect(() => {
+    refreshUserProfile().catch(() => {});
+  }, [refreshUserProfile]);
 
   return (
     <Component
