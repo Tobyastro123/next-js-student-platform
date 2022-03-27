@@ -35,6 +35,10 @@
   font-family: 'Raleway', sans-serif;
 }
 
+.myProfileHidden {
+  display: none;
+}
+
 .singlePost {
   display: flex;
   align-items: center;

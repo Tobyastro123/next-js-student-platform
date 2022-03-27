@@ -6,26 +6,11 @@ import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
 
 type Props = {
-  // refreshUserProfile: () => void;
   blogPosts: BlogPost[];
   userObject: { username: string };
 };
 
 export default function BlogPostList(props: Props) {
-  // // if ('error' in props) {
-  // return (
-  //   <Layout>
-  //     {/* <Layout userObject={props.userObject}></Layout> */}
-  //     <Head>
-  //       <title>Blog Post Error</title>
-  //       <meta name="description" content="An error about an blog post " />
-  //     </Head>
-  //     <h1>Blog Posts Error</h1>
-  //     {/* {props.error} */}
-  //   </Layout>
-  // );
-  // props.refreshUserProfile();
-
   return (
     <Layout userObject={props.userObject}>
       <Head>

@@ -62,13 +62,30 @@ export default function Header(props: Props) {
         <Link href="/posts">
           <a>READ POSTS</a>
         </Link>
-        <Link href="/createPost">
-          <a>CREATE A POST</a>
-        </Link>
-        <Link href="users/protected-user">
-          <a>PROFILE</a>
-        </Link>
-
+        {!props.userObject && (
+          <li className={styles.myProfileHidden}>
+            <Link href="/createPost">
+              <a>CREATE A POST</a>
+            </Link>
+          </li>
+        )}
+        {props.userObject && (
+          <Link href="/createPost">
+            <a>CREATE A POST</a>
+          </Link>
+        )}
+        {!props.userObject && (
+          <li className={styles.myProfileHidden}>
+            <Link href="users/protected-user">
+              <a>MY PROFILE</a>
+            </Link>
+          </li>
+        )}
+        {props.userObject && (
+          <Link href="users/protected-user">
+            <a>MY PROFILE</a>
+          </Link>
+        )}
         <div className={styles.usernameSpace} />
         {props.userObject ? (
           <Anchor href="/logout">LOGOUT</Anchor>

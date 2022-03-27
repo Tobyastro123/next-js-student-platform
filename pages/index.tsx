@@ -9,9 +9,13 @@ import {
   imageWrapper1,
 } from '../variants';
 
-export default function Home() {
+type Props = {
+  userObject: { username: string };
+};
+
+export default function Home(props: Props) {
   return (
-    <Layout>
+    <Layout userObject={props.userObject}>
       <Head>
         <title>Home Page</title>
         <meta name="description" content="Welcome to homepage" />
