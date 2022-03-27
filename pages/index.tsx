@@ -27,7 +27,7 @@ export default function Home(props: Props) {
       <div>
         <TextContainer />
 
-        {/* juice bottle image */}
+        {/* image */}
         <motion.div
           variants={imageWrapper}
           initial="initial"
