@@ -59,10 +59,10 @@ export async function getBlogPosts() {
 }
 
 export async function getBlogPostsById(id: number) {
-  const [blogPost] = await sql<BlogPost[]>`
+  const [blogPost] = await sql<[BlogPost | undefined]>`
     SELECT * FROM blogPosts WHERE id = ${id};
   `;
-  return camelcaseKeys(blogPost);
+  return blogPost && camelcaseKeys(blogPost);
 }
 
 export async function createBlogPost(

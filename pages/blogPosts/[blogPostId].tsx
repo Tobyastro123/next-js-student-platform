@@ -107,36 +107,32 @@ export default function SingleBlogPost(props: Props) {
           </Head>
           <div>
             <div className={styles.deleteButtonOnSinglePage}>
+              <Card.Content extra className={styles.singlePostAuthor}>
+                <Icon name="pencil alternate" />
+                {props.blogPosts.author}
+              </Card.Content>
               {!props.userObject && (
                 <li className={styles.myProfileHidden}>
-                  <Button
-                    inverted
+                  <Icon
+                    name="trash"
                     color="red"
                     onClick={() => {
                       deletePost(props.blogPosts.id).catch(() => {});
                     }}
-                  >
-                    Delete
-                  </Button>
+                  />
                 </li>
               )}
               {props.userObject && (
-                <Button
-                  inverted
+                <Icon
+                  name="trash"
                   color="red"
                   onClick={() => {
                     deletePost(props.blogPosts.id).catch(() => {});
                   }}
-                >
-                  Delete
-                </Button>
+                />
               )}
             </div>
             <Container className={styles.singlePostContainer}>
-              <Card.Content extra>
-                <Icon name="pencil alternate" />
-                {props.blogPosts.author}
-              </Card.Content>
               <Image
                 src={props.blogPosts.image}
                 alt=""
@@ -199,11 +195,22 @@ export default function SingleBlogPost(props: Props) {
                         <Comment.Author as="a">{e.username}</Comment.Author>{' '}
                         <Comment.Text>{e.comment} </Comment.Text>
                         <Comment.Actions>
-                          <Comment.Action>Reply</Comment.Action>
+                          <Comment.Action>
+                            Reply{' '}
+                            <Icon
+                              className={styles.editCommentIcon}
+                              name="edit"
+                              color="green"
+                              onClick={() => deleteComment(e.id)}
+                            />
+                            <Icon
+                              className={styles.deleteCommentIcon}
+                              name="trash"
+                              color="red"
+                              onClick={() => deleteComment(e.id)}
+                            />
+                          </Comment.Action>
                         </Comment.Actions>
-                        <Button onClick={() => deleteComment(e.id)}>
-                          Remove
-                        </Button>
                       </Comment.Content>
                     </Comment>
                   );
@@ -264,8 +271,8 @@ export async function getServerSideProps(
       // In the props object, you can pass back
       // whatever information you want
 
-      blogPosts,
-      blogPostComment,
+      blogPosts: blogPosts,
+      blogPostComment: blogPostComment,
       userId: user?.id,
     },
   };
