@@ -18,17 +18,34 @@ export default function BlogPostList(props: Props) {
         <meta name="description" content="These are my posts" />
       </Head>
       <div className={styles.createPostButtonContainer}>
-        <Link href="/createPost" passHref>
-          <Button
-            inverted
-            color="violet"
-            animated="fade"
-            className={styles.createPostButton}
-          >
-            <Button.Content visible>WRITE . .</Button.Content>
-            <Button.Content hidden>TELL YOUR STORY</Button.Content>
-          </Button>
-        </Link>
+        {!props.userObject && (
+          <li className={styles.myProfileHidden}>
+            <Link href="/createPost" passHref>
+              <Button
+                inverted
+                color="violet"
+                animated="fade"
+                className={styles.createPostButton}
+              >
+                <Button.Content visible>WRITE . .</Button.Content>
+                <Button.Content hidden>TELL YOUR STORY</Button.Content>
+              </Button>
+            </Link>
+          </li>
+        )}
+        {props.userObject && (
+          <Link href="/createPost" passHref>
+            <Button
+              inverted
+              color="violet"
+              animated="fade"
+              className={styles.createPostButton}
+            >
+              <Button.Content visible>WRITE . .</Button.Content>
+              <Button.Content hidden>TELL YOUR STORY</Button.Content>
+            </Button>
+          </Link>
+        )}
       </div>
       <div className={styles.cardContainer}>
         {/* <Grid centered> */}
