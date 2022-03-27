@@ -68,15 +68,30 @@ export default function SingleBlogPost(props: Props) {
           </Head>
           <div>
             <div className={styles.deleteButtonOnSinglePage}>
-              <Button
-                inverted
-                color="red"
-                onClick={() => {
-                  deletePost(props.blogPosts.id).catch(() => {});
-                }}
-              >
-                Delete
-              </Button>
+              {!props.userObject && (
+                <li className={styles.myProfileHidden}>
+                  <Button
+                    inverted
+                    color="red"
+                    onClick={() => {
+                      deletePost(props.blogPosts.id).catch(() => {});
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </li>
+              )}
+              {props.userObject && (
+                <Button
+                  inverted
+                  color="red"
+                  onClick={() => {
+                    deletePost(props.blogPosts.id).catch(() => {});
+                  }}
+                >
+                  Delete
+                </Button>
+              )}
             </div>
             <Container className={styles.singlePostContainer}>
               <Card.Content extra>
