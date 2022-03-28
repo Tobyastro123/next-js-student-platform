@@ -28,7 +28,7 @@ type Props = {
   blogPosts: BlogPost;
   refreshUserProfile: () => void;
   userObject: { username: string; image: string };
-  blogPostComment: {
+  blogPostComments: {
     comment: string;
     id: number;
     username: string;
@@ -77,7 +77,7 @@ export default function SingleBlogPost(props: Props) {
   }
 
   const [userComment, setUserComment] = useState<string>('');
-  const [initialComment, setInitialComment] = useState(props.blogPostComment);
+  const [initialComment, setInitialComment] = useState(props.blogPostComments);
   console.log('props', props);
   const deleteComment = async (id: number) => {
     const response = await fetch(`/api/comment`, {
@@ -234,7 +234,7 @@ export default function SingleBlogPost(props: Props) {
 // by Next.js
 export async function getServerSideProps(
   context: GetServerSidePropsContext,
-): Promise<GetServerSidePropsResult<{ blogPosts?: BlogPost }>> {
+): Promise<GetServerSidePropsResult<{}>> {
   const blogPostId = context.query.blogPostId;
   const token = context.req.cookies.sessionToken;
   const user = await getUserByValidSessionToken(token);
@@ -251,9 +251,11 @@ export async function getServerSideProps(
   if (!blogPostId || Array.isArray(blogPostId)) {
     return { props: {} };
   }
-  const blogPostComment = await getCommentByPostId(parseInt(blogPostId));
+  const blogPostComments = await getCommentByPostId(parseInt(blogPostId));
 
-  const postCommentMap = blogPostComment.map((blogPosts) => blogPosts.comment);
+  console.log('blogPostComment in terminal', blogPostComments);
+
+  const postCommentMap = blogPostComments.map((blogPosts) => blogPosts.comment);
 
   const blogPosts = await getBlogPostsById(parseInt(blogPostId));
 
@@ -272,7 +274,7 @@ export async function getServerSideProps(
       // whatever information you want
 
       blogPosts: blogPosts,
-      blogPostComment: blogPostComment,
+      blogPostComments: blogPostComments,
       userId: user?.id,
     },
   };

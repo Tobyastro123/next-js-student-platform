@@ -59,7 +59,7 @@ export async function getBlogPosts() {
 }
 
 export async function getBlogPostsById(id: number) {
-  const [blogPost] = await sql<[BlogPost | undefined]>`
+  const [blogPost] = await sql<[BlogPost]>`
     SELECT * FROM blogPosts WHERE id = ${id};
   `;
   return blogPost && camelcaseKeys(blogPost);
@@ -88,7 +88,7 @@ export async function updateBlogPostById(
   title: string,
   story: string,
 ) {
-  const [post] = await sql<[BlogPost | undefined]>`
+  const [post] = await sql<[BlogPost]>`
     UPDATE
       blogPosts
     SET
@@ -102,7 +102,7 @@ export async function updateBlogPostById(
 }
 
 export async function deleteBlogPostById(id: number) {
-  const [post] = await sql<[BlogPost | undefined]>`
+  const [post] = await sql<[BlogPost]>`
     DELETE FROM
       blogPosts
     WHERE
@@ -133,9 +133,9 @@ export async function getPostsFromUserId(userId: number) {
 
 export type Comment = {
   id: number;
-  blogPostId?: number;
+  blogPostId: number;
   userId: number;
-  comment?: string;
+  comment: string;
   image: string;
 };
 
