@@ -27,7 +27,7 @@ import { PostResponseBody } from '../api/blogPosts/[singlePostId]';
 type Props = {
   blogPosts: BlogPost;
   refreshUserProfile: () => void;
-  userObject: { username: string; image: string };
+  userObject: { username: string; image: string; userId: number };
   blogPostComments: {
     comment: string;
     id: number;
@@ -43,12 +43,12 @@ type Props = {
 export default function SingleBlogPost(props: Props) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
-  console.log('Props in blogpostId', props);
-  console.log(
-    'conditional',
-    props.userObject &&
-      props.userObject.username === props.blogPostComments[0].username,
-  );
+  // console.log('Props in blogpostId', props);
+  // console.log(
+  //   'conditional',
+  //   props.userObject &&
+  //     props.userObject.username === props.blogPostComments[0].username,
+  // );
   // const [title, setTitle] = useState('');
   // const [story, setStory] = useState('');
 
@@ -120,6 +120,7 @@ export default function SingleBlogPost(props: Props) {
                 <Icon name="pencil alternate" />
                 {props.blogPosts.author}
               </Card.Content>
+
               {!props.userObject && (
                 <li className={styles.myProfileHidden}>
                   <Icon

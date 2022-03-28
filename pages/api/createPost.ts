@@ -11,8 +11,6 @@ export default async function createBlogPostHandler(
       request.body.story,
       request.body.author,
       request.body.image,
-      request.body.username,
-      request.body.userId,
     );
 
     response.status(201).json({ post: post });

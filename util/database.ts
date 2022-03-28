@@ -70,17 +70,19 @@ export async function createBlogPost(
   story: string,
   author: string,
   image: string,
-  username: string,
-  userId: number,
 ) {
   const [post] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
-      (title, story, author, image, username, userId)
+      (title, story, author, image)
     VALUES
-      (${title}, ${story}, ${author}, ${image}, ${username}, ${userId})
+      (${title}, ${story}, ${author}, ${image})
     RETURNING
       id,
-      title
+      title,
+      story,
+      author,
+      image
+
   `;
   return camelcaseKeys(post);
 }
