@@ -13,19 +13,21 @@ export default function OurStory(props) {
         <div>
           <h1>Our Story</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa
-            nulla, convallis eget pharetra eu, mattis et nunc. Fusce vel
-            vulputate lorem. Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Fusce odio nibh,
-            sollicitudin et turpis vel, consectetur vehicula massa. Nam
-            venenatis ultrices elit, eget consequat tellus finibus in. Proin
-            ultricies, est eget volutpat blandit, arcu nisi lacinia nibh, ac
-            suscipit massa felis non neque. Nam sodales nunc nunc, eu dictum
-            ligula ullamcorper ut. Nulla nisl ligula, rhoncus maximus porttitor
-            ut, condimentum non tellus. Cras non dolor in risus gravida
-            pulvinar. Nam tortor lorem, vehicula et nisl quis, condimentum
-            feugiat nibh. Curabitur vitae porttitor lacus, eget pretium ipsum.
-            Integer posuere arcu magna.
+            Hey friends! 🙋‍♀️
+            <br />
+            <br />
+            Our purpose behind Student for Student is building a community of
+            students who are passionate about sharing their knowledge and
+            experiences with other students in order to help them grow and
+            learn, make friends, and have fun while doing so.
+            <br />
+            <br />I remember the first days at the University of Vienna how lost
+            i felt and searching for information felt hard and complicated.
+            Therefore, was always wondering if there is a place where i could
+            find everything i needed without so much effort. That is how the
+            idea of Student for Student came to be. <br />
+            <br />
+            Hope it would make things easier for you and you will enjoy it! ✌️
           </p>
         </div>
       </div>

@@ -109,9 +109,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 75rem;
-  padding-left: 35rem;
+  /* width: 75rem; */
+  padding-left: 17rem;
+  padding-right: 17rem;
   padding-bottom: 12rem;
+  font-size: 1.7rem;
 }
 
 .aboutTextContainer {
