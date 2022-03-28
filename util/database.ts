@@ -70,12 +70,14 @@ export async function createBlogPost(
   story: string,
   author: string,
   image: string,
+  username: string,
+  userId: number,
 ) {
   const [post] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
-      (title, story, author, image)
+      (title, story, author, image, username, userId)
     VALUES
-      (${title}, ${story}, ${author}, ${image})
+      (${title}, ${story}, ${author}, ${image}, ${username}, ${userId})
     RETURNING
       id,
       title
