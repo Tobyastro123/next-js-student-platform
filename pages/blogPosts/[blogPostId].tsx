@@ -42,6 +42,13 @@ type Props = {
 
 export default function SingleBlogPost(props: Props) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  console.log('Props in blogpostId', props);
+  console.log(
+    'conditional',
+    props.userObject &&
+      props.userObject.username === props.blogPostComments[0].username,
+  );
   // const [title, setTitle] = useState('');
   // const [story, setStory] = useState('');
 
@@ -77,7 +84,9 @@ export default function SingleBlogPost(props: Props) {
   }
 
   const [userComment, setUserComment] = useState<string>('');
-  const [initialComment, setInitialComment] = useState(props.blogPostComments);
+  const [initialComments, setInitialComments] = useState(
+    props.blogPostComments,
+  );
   console.log('props', props);
   const deleteComment = async (id: number) => {
     const response = await fetch(`/api/comment`, {
@@ -91,10 +100,10 @@ export default function SingleBlogPost(props: Props) {
     });
     const newResponse = await response.json();
     console.log('newResponse', newResponse.deletedComment);
-    const newCommentList = initialComment.filter((comment) => {
+    const newCommentList = initialComments.filter((comment) => {
       return newResponse.deletedComment.id !== comment.id;
     });
-    setInitialComment(newCommentList);
+    setInitialComments(newCommentList);
   };
 
   return (
@@ -169,8 +178,8 @@ export default function SingleBlogPost(props: Props) {
                   const newComment = await commentResponse.json();
                   // console.log('commentResponse.body', newComment);
                   setUserComment('');
-                  const newCommentList = [...initialComment, newComment];
-                  setInitialComment(newCommentList);
+                  const newCommentList = [...initialComments, newComment];
+                  setInitialComments(newCommentList);
 
                   return;
                 }}
@@ -184,10 +193,10 @@ export default function SingleBlogPost(props: Props) {
 
                 <Button>Comment</Button>
               </Form>
-              {initialComment.length === 0 ? (
+              {initialComments.length === 0 ? (
                 <div> </div>
               ) : (
-                initialComment.map((e) => {
+                initialComments.map((e) => {
                   return (
                     <Comment key={e.comment}>
                       <Comment.Avatar src={e.image} />
@@ -196,19 +205,31 @@ export default function SingleBlogPost(props: Props) {
                         <Comment.Text>{e.comment} </Comment.Text>
                         <Comment.Actions>
                           <Comment.Action>
-                            Reply{' '}
-                            <Icon
-                              className={styles.editCommentIcon}
-                              name="edit"
-                              color="green"
-                              onClick={() => deleteComment(e.id)}
-                            />
-                            <Icon
-                              className={styles.deleteCommentIcon}
-                              name="trash"
-                              color="red"
-                              onClick={() => deleteComment(e.id)}
-                            />
+                            Reply {/*  i need a map here */}
+                            {props.userObject &&
+                              props.userObject.username === e.username && (
+                                <Icon
+                                  className={
+                                    (styles.myProfileHidden,
+                                    styles.editCommentIcon)
+                                  }
+                                  name="edit"
+                                  color="green"
+                                  onClick={() => deleteComment(e.id)}
+                                />
+                              )}
+                            {props.userObject &&
+                              props.userObject.username === e.username && (
+                                <Icon
+                                  className={
+                                    (styles.myProfileHidden,
+                                    styles.deleteCommentIcon)
+                                  }
+                                  name="trash"
+                                  color="red"
+                                  onClick={() => deleteComment(e.id)}
+                                />
+                              )}
                           </Comment.Action>
                         </Comment.Actions>
                       </Comment.Content>
