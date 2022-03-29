@@ -65,7 +65,7 @@ export default function StudentVisa(props) {
       </div>
 
       <div className={styles.websiteLinkStudentVisa}>
-        <p>Official website for student visa documents</p>
+        <p>Official website for student visa documents:</p>
         <a>
           https://www.oesterreich.gv.at/themen/leben_in_oesterreich/aufenthalt/3/2/1/1/Seite.120121.html#ErforderlicheUnterlagen
         </a>
