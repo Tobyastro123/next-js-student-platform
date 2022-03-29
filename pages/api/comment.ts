@@ -7,7 +7,7 @@ export default async function commentHandler(
 ) {
   if (request.method === 'POST') {
     const commentFromRequest = request.body;
-
+    // POST method to create a new comment
     const newComment = await createComment(
       commentFromRequest.userComment,
       commentFromRequest.userId,
