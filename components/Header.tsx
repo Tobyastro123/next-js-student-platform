@@ -47,8 +47,8 @@ export default function Header(props: Props) {
           <Link href="/studentInsurance">
             <a>STUDENT INSURANCE</a>
           </Link>
-          <Link href="/aufenthaltstitel">
-            <a>AUFENTHALTSTITEL</a>
+          <Link href="/housing">
+            <a>HOUSING</a>
           </Link>
         </ul>
       </div>
