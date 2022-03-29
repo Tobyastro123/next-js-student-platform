@@ -12,7 +12,7 @@ export default function StudentVisa(props) {
       </Head>
       <div className={styles.studentVisaPage}>
         <div>
-          <h1>Student Visa</h1>
+          <h1>Student Visa / Aufenthaltstitel</h1>
           <p>
             If you are coming from country that is not in European Union you are
             going to need a bunch of documents in order to apply for a student
