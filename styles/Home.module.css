@@ -116,6 +116,36 @@
   font-size: 1.7rem;
 }
 
+.studentVisaPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studentVisaPage h1 {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studentVisaPage p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 75rem; */
+  padding-left: 17rem;
+  padding-right: 17rem;
+  padding-bottom: 6rem;
+  font-size: 1.7rem;
+}
+
+.accordionContainer {
+  margin: 0 17rem 0 17rem;
+  font-size: 1.5rem;
+}
+
 .aboutTextContainer {
   padding-top: 6rem;
   padding-left: 10rem;
