@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button, Card, Icon, Image } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
@@ -11,72 +12,63 @@ type Props = {
 };
 
 export default function BlogPostList(props: Props) {
+  const [search, setSearch] = useState('');
   return (
     <Layout userObject={props.userObject}>
       <Head>
         <title>Posts</title>
         <meta name="description" content="These are my posts" />
       </Head>
-      <div className={styles.createPostButtonContainer}>
-        {!props.userObject && (
-          <li className={styles.myProfileHidden}>
-            <Link href="/createPost" passHref>
-              <Button
-                inverted
-                color="violet"
-                animated="fade"
-                className={styles.createPostButton}
-              >
-                <Button.Content visible>WRITE . .</Button.Content>
-                <Button.Content hidden>TELL YOUR STORY</Button.Content>
-              </Button>
-            </Link>
-          </li>
-        )}
-        {props.userObject && (
-          <Link href="/createPost" passHref>
-            <Button
-              inverted
-              color="violet"
-              animated="fade"
-              className={styles.createPostButton}
-            >
-              <Button.Content visible>WRITE . .</Button.Content>
-              <Button.Content hidden>TELL YOUR STORY</Button.Content>
-            </Button>
-          </Link>
-        )}
+      <div className={styles.searchPostButtonContainer}>
+        <input
+          className={styles.searchPostButton}
+          placeholder="Search..."
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+        />
       </div>
       <div className={styles.cardContainer}>
         {/* <Grid centered> */}
         <Card.Group itemsPerRow={3}>
-          {props.blogPosts.map((blogPost) => {
-            return (
-              <Card
-                color="blue"
-                key={`blogPost-${blogPost.id}`}
-                className={styles.card}
-              >
-                <Image
-                  src={blogPost.image}
-                  className={styles.cardImage}
-                  alt=""
-                />
-                <Link href={`/blogPosts/${blogPost.id}`} passHref>
-                  <Card.Content>
-                    <Card.Header className={styles.cardHeader}>
-                      {blogPost.title}
-                    </Card.Header>
-                    {/* <Card.Description>{blogPost.story}</Card.Description> */}
+          {props.blogPosts
+            .filter((blogPost) => {
+              if (search === '') {
+                return blogPost;
+              } else if (
+                blogPost.title.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return blogPost;
+              }
+            })
+
+            .map((blogPost) => {
+              return (
+                <Card
+                  color="blue"
+                  key={`blogPost-${blogPost.id}`}
+                  className={styles.card}
+                >
+                  <Image
+                    src={blogPost.image}
+                    className={styles.cardImage}
+                    alt=""
+                  />
+                  <Link href={`/blogPosts/${blogPost.id}`} passHref>
+                    <Card.Content>
+                      <Card.Header className={styles.cardHeader}>
+                        {blogPost.title}
+                      </Card.Header>
+                      {/* <Card.Description>{blogPost.story}</Card.Description> */}
+                    </Card.Content>
+                  </Link>{' '}
+                  <Card.Content extra>
+                    <Icon name="pencil alternate" />
+                    {blogPost.author}
                   </Card.Content>
-                </Link>{' '}
-                <Card.Content extra>
-                  <Icon name="pencil alternate" />
-                  {blogPost.author}
-                </Card.Content>
-              </Card>
-            );
-          })}
+                </Card>
+              );
+            })}
         </Card.Group>
         {/* </Grid> */}
       </div>

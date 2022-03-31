@@ -401,7 +401,7 @@
  * createPostButton
  */
 
-.createPostButtonContainer {
+.searchPostButtonContainer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -409,9 +409,11 @@
   margin-top: 2rem;
 }
 
-.createPostButton {
-  height: 2.5rem;
-  width: 10rem;
+.searchPostButton {
+  height: 2rem;
+  width: 12rem;
   font-family: 'Raleway', sans-serif;
   font-size: 0.9rem !important;
+  border: 0;
+  outline: 0;
 }
