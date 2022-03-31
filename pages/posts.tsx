@@ -45,7 +45,7 @@ export default function BlogPostList(props: Props) {
             .map((blogPost) => {
               return (
                 <Card
-                  color="blue"
+                  color="red"
                   key={`blogPost-${blogPost.id}`}
                   className={styles.card}
                 >

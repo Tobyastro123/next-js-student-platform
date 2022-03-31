@@ -101,7 +101,9 @@ export default function Header(props: Props) {
         )}
         {props.userObject && (
           <>
-            <div className={styles.username}>{props.userObject.username}</div>
+            <div className={styles.username}>
+              {props.userObject.username} ✌️
+            </div>
             <div>
               <Image
                 className={styles.userPhotoInHeader}
