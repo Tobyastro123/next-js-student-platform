@@ -46,37 +46,6 @@ export default function Register(props: Props) {
     setLoading(false);
   };
 
-  // const AddUserWithImage = async () => {
-  //   const registerResponse = await fetch('/api/register', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       username: username,
-  //       password: password,
-  //       csrfToken: props.csrfToken,
-  //       image: image,
-  //     }),
-  //   });
-
-  //   const registerResponseBody =
-  //     (await registerResponse.json()) as RegisterResponseBody;
-
-  //   if ('errors' in registerResponseBody) {
-  //     setErrors(registerResponseBody.errors);
-  //     return;
-  //   }
-
-  //   props.refreshUserProfile();
-
-  //   // await router.push('/');
-  // };
-  // const onClickAddUser = () => {
-  //   AddUserWithImage();
-  //   router.push('/');
-  // };
-
   return (
     <Layout userObject={props.userObject}>
       <Head>
@@ -115,6 +84,7 @@ export default function Register(props: Props) {
             await router.push('/');
           }}
         >
+          <h1 className={styles.registerInputTitle}>Register</h1>
           <Form.Field>
             <label>
               <input
@@ -144,15 +114,17 @@ export default function Register(props: Props) {
               placeholder="Upload an image"
               onChange={uploadImage}
             />
-            <div>
+            <div className={styles.registerUserImageContainer}>
               {loading ? (
                 <p>Loading...</p>
               ) : (
-                <img src={image} className={styles.registerUserImage} alt="" />
+                <div className={styles.registerUserImage} /> // <img src={image} className={styles.registerUserImage} alt="" />
               )}
             </div>
           </div>
-          <Button>Register</Button>
+          <Button basic color="green">
+            Register
+          </Button>
         </Form>
       </div>
       <div className={styles.errorStyles}>

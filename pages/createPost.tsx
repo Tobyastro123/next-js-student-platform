@@ -96,7 +96,7 @@ export default function CreateBlogPost(props: Props) {
               {loading ? (
                 <p>Loading...</p>
               ) : (
-                <img src={image} className={styles.createPostImage} alt="" />
+                <div className={styles.createPostImage} /> // <img src={image} className={styles.createPostImage} alt="" />
               )}
             </div>
           </div>

@@ -76,9 +76,9 @@ export default function Login(props: Props) {
             await router.push(`/`);
           }}
         >
+          <h1 className={styles.loginInputTitle}>Login</h1>
           <Form.Field>
             <label>
-              {/* Username:{' '} */}
               <input
                 value={username}
                 placeholder="Enter your username"
@@ -89,7 +89,6 @@ export default function Login(props: Props) {
 
           <Form.Field>
             <label>
-              {/* Password:{' '} */}
               <input
                 type="password"
                 value={password}
@@ -99,7 +98,9 @@ export default function Login(props: Props) {
             </label>
           </Form.Field>
 
-          <Button>Login</Button>
+          <Button basic color="green">
+            Login
+          </Button>
         </Form>
       </div>
 
