@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import { BlogPost } from '../util/database';
 
 // Define props
 type Props = {

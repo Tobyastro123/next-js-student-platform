@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Button, Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
