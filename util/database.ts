@@ -71,20 +71,15 @@ export async function createBlogPost(
   author: string,
   image: string,
 ) {
-  const [post] = await sql<[BlogPost]>`
+  const [blogPost] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
       (title, story, author, image)
     VALUES
       (${title}, ${story}, ${author}, ${image})
     RETURNING
-      id,
-      title,
-      story,
-      author,
-      image
-
+      *
   `;
-  return camelcaseKeys(post);
+  return camelcaseKeys(blogPost);
 }
 
 export async function updateBlogPostById(
@@ -92,7 +87,7 @@ export async function updateBlogPostById(
   title: string,
   story: string,
 ) {
-  const [post] = await sql<[BlogPost]>`
+  const [blogPost] = await sql<[BlogPost | undefined]>`
     UPDATE
       blogPosts
     SET
@@ -102,18 +97,18 @@ export async function updateBlogPostById(
       id = ${id}
     RETURNING *
   `;
-  return post && camelcaseKeys(post);
+  return blogPost && camelcaseKeys(blogPost);
 }
 
 export async function deleteBlogPostById(id: number) {
-  const [post] = await sql<[BlogPost]>`
+  const [blogPost] = await sql<[BlogPost | undefined]>`
     DELETE FROM
       blogPosts
     WHERE
       id = ${id}
     RETURNING *
   `;
-  return post && camelcaseKeys(post);
+  return blogPost && camelcaseKeys(blogPost);
 }
 
 export async function getPostsFromUserId(userId: number) {

@@ -50,16 +50,18 @@ export default function CreateBlogPost(props: Props) {
         <Form
           onSubmit={async (event) => {
             event.preventDefault();
-            await fetch('/api/createPost', {
+            await fetch('/api/blogPosts', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                title: title,
-                story: story,
-                author: author,
-                image: image,
+                blogPost: {
+                  title: title,
+                  story: story,
+                  author: author,
+                  image: image,
+                },
               }),
             });
 

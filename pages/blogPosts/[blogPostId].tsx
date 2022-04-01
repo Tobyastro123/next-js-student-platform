@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   Button,
   Card,
@@ -9,8 +9,8 @@ import {
   Container,
   Divider,
   Form,
-  HeaderContent,
   Header,
+  HeaderContent,
   Icon,
   Image,
 } from 'semantic-ui-react';
@@ -22,7 +22,9 @@ import {
   getCommentByPostId,
   getUserByValidSessionToken,
 } from '../../util/database';
+import { PostsResponseBodyGet } from '../api/blogPosts';
 import { PostResponseBody } from '../api/blogPosts/[singlePostId]';
+import BlogPostList from '../posts';
 
 type Props = {
   blogPosts: BlogPost;
@@ -53,10 +55,10 @@ export default function SingleBlogPost(props: Props) {
   // const [story, setStory] = useState('');
 
   // State Variable with the id of the animal on editMode
-  // const [idEditPostId, setIdEditPostId] = useState<number>();
+  const [idEditPostId, setIdEditPostId] = useState<number>();
   // State Variables for the on Edit inputs
-  // const [titleOnEdit, setTitleOnEdit] = useState('');
-  // const [storyOnEdit, setStoryOnEdit] = useState('');
+  const [titleOnEdit, setTitleOnEdit] = useState('');
+  const [storyOnEdit, setStoryOnEdit] = useState('');
 
   const [error, setError] = useState('');
 
@@ -82,6 +84,50 @@ export default function SingleBlogPost(props: Props) {
     props.refreshUserProfile();
     await router.push('/posts');
   }
+
+  async function updatePost(id: number) {
+    if (!titleOnEdit || !storyOnEdit) {
+      console.log('I need more data to update');
+      return;
+    }
+    const putResponse = await fetch(`/api/blogPosts/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        post: {
+          title: titleOnEdit,
+          story: storyOnEdit,
+        },
+      }),
+    });
+    const putResponseBody = (await putResponse.json()) as PostResponseBody;
+
+    if ('error' in putResponseBody) {
+      setError(putResponseBody.error);
+      return;
+    }
+    const updatedPostList = posts.map((post) => {
+      if (post.id === putResponseBody.post.id) {
+        return putResponseBody.post;
+      } else {
+        return post;
+      }
+    });
+    setPosts(updatedPostList);
+  }
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const readResponse = await fetch('/api/blogPosts');
+      const readResponseBody =
+        (await readResponse.json()) as PostsResponseBodyGet;
+      setPosts(readResponseBody.blogPosts);
+    };
+
+    getPosts().catch(() => {});
+  }, []);
 
   const [userComment, setUserComment] = useState<string>('');
   const [initialComments, setInitialComments] = useState(
@@ -114,47 +160,81 @@ export default function SingleBlogPost(props: Props) {
             <title>Single Post Page</title>
             <meta name="description" content="This is my single Post PAge" />
           </Head>
-          <div>
-            <div className={styles.deleteButtonOnSinglePage}>
-              <Card.Content extra className={styles.singlePostAuthor}>
-                <Icon name="pencil alternate" />
-                {props.blogPosts.author}
-              </Card.Content>
+          <div className={styles.singlePostBodyContainer}>
+            {posts.map((post) => {
+              const isDisabled = idEditPostId !== post.id;
+              return (
+                <Fragment key={post.id}>
+                  <div className={styles.deleteButtonOnSinglePage}>
+                    <Card.Content extra className={styles.singlePostAuthor}>
+                      <Icon name="pencil alternate" />
+                      {props.blogPosts.author}
+                    </Card.Content>
 
-              {!props.userObject && (
-                <li className={styles.myProfileHidden}>
-                  <Icon
-                    name="trash"
-                    color="red"
-                    onClick={() => {
-                      deletePost(props.blogPosts.id).catch(() => {});
-                    }}
-                  />
-                </li>
-              )}
-              {props.userObject && (
-                <Icon
-                  name="trash"
-                  color="red"
-                  onClick={() => {
-                    deletePost(props.blogPosts.id).catch(() => {});
-                  }}
-                />
-              )}
-            </div>
-            <Container className={styles.singlePostContainer}>
-              <Image
-                src={props.blogPosts.image}
-                alt=""
-                className={styles.singlePostImage}
-              />
-              <HeaderContent as="h2"> {props.blogPosts.title}</HeaderContent>
-              <Divider className={styles.dividerSinglePostPage} />
-              <p className={styles.paragraphSinglePostPage}>
-                {' '}
-                {props.blogPosts.story}{' '}
-              </p>
-            </Container>
+                    {/* <li className={styles.myProfileHidden}> */}
+
+                    {/* </li> */}
+                    {isDisabled ? (
+                      <Icon
+                        onClick={() => {
+                          setIdEditPostId(post.id);
+                          setTitleOnEdit(post.title);
+                          setStoryOnEdit(post.story);
+                        }}
+                        name="edit"
+                        color="green"
+                      />
+                    ) : (
+                      <Icon
+                        onClick={() => {
+                          updatePost(post.id).catch(() => {});
+                          setIdEditPostId(undefined);
+                        }}
+                        name="save"
+                        color="green"
+                      />
+                    )}
+                    <Icon
+                      name="trash"
+                      color="red"
+                      onClick={() => {
+                        deletePost(props.blogPosts.id).catch(() => {});
+                      }}
+                    />
+                  </div>
+
+                  <Container className={styles.singlePostContainer}>
+                    <Image
+                      src={post.image}
+                      alt=""
+                      className={styles.singlePostImage}
+                    />
+                    <div>
+                      <div className={styles.singlePostTitle}>
+                        <Header as="h3" dividing>
+                          <input
+                            onChange={(event) =>
+                              setTitleOnEdit(event.currentTarget.value)
+                            }
+                            value={isDisabled ? post.title : titleOnEdit}
+                            disabled={isDisabled}
+                          />
+                        </Header>
+                      </div>
+                      <div className={styles.singlePostStory}>
+                        <input
+                          onChange={(event) =>
+                            setStoryOnEdit(event.currentTarget.value)
+                          }
+                          value={isDisabled ? post.story : storyOnEdit}
+                          disabled={isDisabled}
+                        />
+                      </div>
+                    </div>
+                  </Container>
+                </Fragment>
+              );
+            })}
             <Comment.Group>
               <Header as="h3" dividing>
                 Comments

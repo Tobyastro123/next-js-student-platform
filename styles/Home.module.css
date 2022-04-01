@@ -46,11 +46,15 @@
   justify-content: center;
   padding-top: 3rem;
   /* padding-bottom: 3rem; */
-  width: 150rem;
+  /* width: 150rem; */
+}
+
+.singlePostBodyContainer {
+  width: 42rem;
 }
 
 .commentForm {
-  width: 47rem;
+  width: 43rem;
 }
 
 .deleteCommentIcon {
@@ -69,11 +73,19 @@
   width: 42rem;
 }
 
+.singlePostEditButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .deleteButtonOnSinglePage {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  margin-right: 38.5rem;
+  /* margin-right: 1rem; */
   margin-top: 2rem;
 }
 
@@ -85,6 +97,18 @@
 
 .singlePostAuthor {
   margin-right: 36rem;
+}
+
+.singlePostTitle {
+  font-size: 2rem;
+  padding-top: 1rem;
+  background-color: white;
+  width: 42rem;
+}
+
+.singlePostStory {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
 }
 
 .aboutHomePage {
