@@ -45,6 +45,7 @@ const sql = connectOneTimeToDatabase();
 
 export type BlogPost = {
   id: number;
+  username: string;
   title: string;
   story: string;
   image: string;
@@ -65,15 +66,16 @@ export async function getBlogPostsById(id: number) {
 }
 
 export async function createBlogPost(
+  username: string,
   title: string,
   story: string,
   image: string,
 ) {
   const [blogPost] = await sql<[BlogPost]>`
     INSERT INTO blogPosts
-      (title, story, image)
+      (username, title, story, image)
     VALUES
-      (${title}, ${story}, ${image})
+      (${username}, ${title}, ${story}, ${image})
     RETURNING
       *
   `;

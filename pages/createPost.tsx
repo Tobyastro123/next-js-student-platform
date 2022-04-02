@@ -56,6 +56,7 @@ export default function CreateBlogPost(props: Props) {
               },
               body: JSON.stringify({
                 blogPost: {
+                  username: props.userObject.username,
                   title: title,
                   story: story,
                   image: image,
