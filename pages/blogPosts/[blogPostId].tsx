@@ -24,7 +24,6 @@ import {
 } from '../../util/database';
 import { PostsResponseBodyGet } from '../api/blogPosts';
 import { PostResponseBody } from '../api/blogPosts/[singlePostId]';
-import BlogPostList from '../posts';
 
 type Props = {
   blogPosts: BlogPost;
@@ -108,26 +107,15 @@ export default function SingleBlogPost(props: Props) {
       setError(putResponseBody.error);
       return;
     }
-    const updatedPostList = posts.map((post) => {
-      if (post.id === putResponseBody.post.id) {
-        return putResponseBody.post;
-      } else {
-        return post;
-      }
+
+    const newPostsList = posts.filter((post) => {
+      return putResponseBody.post.id !== post.id;
     });
-    setPosts(updatedPostList);
+
+    setPosts(newPostsList);
+    props.refreshUserProfile();
+    await router.push(`/blogPosts/${id}`);
   }
-
-  useEffect(() => {
-    const getPosts = async () => {
-      const readResponse = await fetch('/api/blogPosts');
-      const readResponseBody =
-        (await readResponse.json()) as PostsResponseBodyGet;
-      setPosts(readResponseBody.blogPosts);
-    };
-
-    getPosts().catch(() => {});
-  }, []);
 
   const [userComment, setUserComment] = useState<string>('');
   const [initialComments, setInitialComments] = useState(
@@ -151,6 +139,7 @@ export default function SingleBlogPost(props: Props) {
     });
     setInitialComments(newCommentList);
   };
+  const isDisabled = idEditPostId !== props.blogPosts.id;
 
   return (
     <Layout userObject={props.userObject}>
@@ -161,80 +150,71 @@ export default function SingleBlogPost(props: Props) {
             <meta name="description" content="This is my single Post PAge" />
           </Head>
           <div className={styles.singlePostBodyContainer}>
-            {posts.map((post) => {
-              const isDisabled = idEditPostId !== post.id;
-              return (
-                <Fragment key={post.id}>
-                  <div className={styles.deleteButtonOnSinglePage}>
-                    <Card.Content extra className={styles.singlePostAuthor}>
-                      <Icon name="pencil alternate" />
-                      {props.blogPosts.author}
-                    </Card.Content>
+            <div className={styles.deleteButtonOnSinglePage}>
+              <Card.Content extra className={styles.singlePostAuthor}>
+                <Icon name="pencil alternate" />
+                {props.blogPosts.author}
+              </Card.Content>
 
-                    {/* <li className={styles.myProfileHidden}> */}
+              {isDisabled ? (
+                <Icon
+                  onClick={() => {
+                    setIdEditPostId(props.blogPosts.id);
+                    setTitleOnEdit(props.blogPosts.title);
+                    setStoryOnEdit(props.blogPosts.story);
+                  }}
+                  name="edit"
+                  color="green"
+                />
+              ) : (
+                <Icon
+                  onClick={() => {
+                    updatePost(props.blogPosts.id).catch(() => {});
+                    setIdEditPostId(undefined);
+                  }}
+                  name="save"
+                  color="green"
+                />
+              )}
+              <Icon
+                name="trash"
+                color="red"
+                onClick={() => {
+                  deletePost(props.blogPosts.id).catch(() => {});
+                }}
+              />
+            </div>
 
-                    {/* </li> */}
-                    {isDisabled ? (
-                      <Icon
-                        onClick={() => {
-                          setIdEditPostId(post.id);
-                          setTitleOnEdit(post.title);
-                          setStoryOnEdit(post.story);
-                        }}
-                        name="edit"
-                        color="green"
-                      />
-                    ) : (
-                      <Icon
-                        onClick={() => {
-                          updatePost(post.id).catch(() => {});
-                          setIdEditPostId(undefined);
-                        }}
-                        name="save"
-                        color="green"
-                      />
-                    )}
-                    <Icon
-                      name="trash"
-                      color="red"
-                      onClick={() => {
-                        deletePost(props.blogPosts.id).catch(() => {});
-                      }}
+            <Container className={styles.singlePostContainer}>
+              <Image
+                src={props.blogPosts.image}
+                alt=""
+                className={styles.singlePostImage}
+              />
+              <div>
+                <div className={styles.singlePostTitle}>
+                  <Header as="h3" dividing>
+                    <input
+                      onChange={(event) =>
+                        setTitleOnEdit(event.currentTarget.value)
+                      }
+                      value={isDisabled ? props.blogPosts.title : titleOnEdit}
+                      disabled={isDisabled}
                     />
-                  </div>
+                  </Header>
+                </div>
+                <div className={styles.singlePostStory}>
+                  <input
+                    onChange={(event) =>
+                      setStoryOnEdit(event.currentTarget.value)
+                    }
+                    value={isDisabled ? props.blogPosts.story : storyOnEdit}
+                    disabled={isDisabled}
+                  />
+                </div>
+              </div>
+            </Container>
 
-                  <Container className={styles.singlePostContainer}>
-                    <Image
-                      src={post.image}
-                      alt=""
-                      className={styles.singlePostImage}
-                    />
-                    <div>
-                      <div className={styles.singlePostTitle}>
-                        <Header as="h3" dividing>
-                          <input
-                            onChange={(event) =>
-                              setTitleOnEdit(event.currentTarget.value)
-                            }
-                            value={isDisabled ? post.title : titleOnEdit}
-                            disabled={isDisabled}
-                          />
-                        </Header>
-                      </div>
-                      <div className={styles.singlePostStory}>
-                        <input
-                          onChange={(event) =>
-                            setStoryOnEdit(event.currentTarget.value)
-                          }
-                          value={isDisabled ? post.story : storyOnEdit}
-                          disabled={isDisabled}
-                        />
-                      </div>
-                    </div>
-                  </Container>
-                </Fragment>
-              );
-            })}
             <Comment.Group>
               <Header as="h3" dividing>
                 Comments
