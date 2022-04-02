@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ![WebApp]![landingPage](https://user-images.githubusercontent.com/90897068/161397509-3b0634df-de9e-4df3-b471-0e26b37c2099.png)
 
-## Getting Started
+# WebApp
+<table>
+<tr>
+<td>
+  A webapp created with the purpose of sharing knowledge. It helps students (and anyone who feels like it) to share experience and knowledge through creating posts about certain subjects, topics or just tell their story in order to help each other. It also helps student who study in Vienna or would like to study in Vienna have a safe place when looking for information about documentation as well.
+</td>
+</tr>
+</table>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Demo
+Here is a working live demo : https://student-for-student.herokuapp.com/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Site
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Landing Page
+Currently it is working and deployed on Heroku. Once is fully finished will have its own domain and released in the real world.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![]![landingPageSlider](https://user-images.githubusercontent.com/90897068/161397693-c452c7c3-7ba7-4a6e-a5af-6f6305ab5093.png)
 
-## Learn More
+### Posts Page
+![]![postsPage](https://user-images.githubusercontent.com/90897068/161397858-38345d27-78f2-4676-a21a-7099dcc2b54b.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Create Post Page
+![]![createPostPage](https://user-images.githubusercontent.com/90897068/161397897-6eaa96dc-fac9-48a1-8a3b-0ac701bf1f9f.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Mobile support
+Working on mobile suport
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Built with 
 
-## Deploy on Vercel
+- [Next.js]
+- [TypeScript] 
+- [Node.js]
+- [PostgreSQL]
+- [Framer - Motion]
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## To-do
+- Add BSE (India) Symbol to the current App.
+- Decide comparison models of Stocks. (suggestions are most welcome).
+- Another WebApp, capable of comparing at least 10 stocks.
+
+## Team
+
+[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
+---|---
+[Harsh Vijay ](https://github.com/iharsh234) |[Quandl](https://www.quandl.com)
+
+## [License](https://github.com/iharsh234/WebApp/blob/master/LICENSE.md)
+
+MIT © [Harsh Vijay ](https://github.com/iharsh234)
