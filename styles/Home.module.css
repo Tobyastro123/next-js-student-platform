@@ -100,15 +100,32 @@
 }
 
 .singlePostTitle {
-  font-size: 2rem;
+  /* font-size: 2rem; */
   padding-top: 1rem;
-  background-color: white;
   width: 42rem;
+}
+
+.singlePostTitleInput {
+  width: 42rem;
+  border: none;
+  outline: none;
+  resize: none;
+  border: none;
+  outline: none;
 }
 
 .singlePostStory {
   font-size: 1.5rem;
   padding-top: 0.5rem;
+}
+
+.singlePostStoryInput {
+  font-size: 1.2rem;
+  width: 42rem;
+  height: 30rem;
+  border: none;
+  outline: none;
+  resize: none;
 }
 
 .aboutHomePage {

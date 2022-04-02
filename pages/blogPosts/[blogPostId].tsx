@@ -193,8 +193,9 @@ export default function SingleBlogPost(props: Props) {
               />
               <div>
                 <div className={styles.singlePostTitle}>
-                  <Header as="h3" dividing>
-                    <input
+                  <Header as="h2" dividing>
+                    <textarea
+                      className={styles.singlePostTitleInput}
                       onChange={(event) =>
                         setTitleOnEdit(event.currentTarget.value)
                       }
@@ -204,7 +205,8 @@ export default function SingleBlogPost(props: Props) {
                   </Header>
                 </div>
                 <div className={styles.singlePostStory}>
-                  <input
+                  <textarea
+                    className={styles.singlePostStoryInput}
                     onChange={(event) =>
                       setStoryOnEdit(event.currentTarget.value)
                     }
@@ -324,7 +326,7 @@ export async function getServerSideProps(
   if (!user) {
     return {
       redirect: {
-        destination: `/login?returnTo=/recipes/${blogPostId}`,
+        destination: `/login?returnTo=/blogPosts/${blogPostId}`,
         permanent: false,
       },
     };
