@@ -149,8 +149,7 @@ export default function SingleBlogPost(props: Props) {
           <div className={styles.singlePostBodyContainer}>
             <div className={styles.deleteButtonOnSinglePage}>
               <Card.Content extra className={styles.singlePostAuthor}>
-                <Icon name="pencil alternate" />
-                {props.blogPosts.username}
+                Written by {props.blogPosts.username}
               </Card.Content>
 
               {isDisabled ? (

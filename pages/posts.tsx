@@ -63,8 +63,7 @@ export default function BlogPostList(props: Props) {
                     </Card.Content>
                   </Link>{' '}
                   <Card.Content extra>
-                    <Icon name="pencil alternate" />
-                    {blogPost.username}
+                    Written by {blogPost.username}
                   </Card.Content>
                 </Card>
               );

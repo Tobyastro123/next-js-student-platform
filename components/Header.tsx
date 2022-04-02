@@ -1,10 +1,10 @@
 import { Interpolation, Theme } from '@emotion/react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 import { Image } from 'semantic-ui-react';
 import styles from '../styles/Home.module.css';
 import { User } from '../util/database';
-import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
 
 type Props = {
@@ -76,13 +76,13 @@ export default function Header(props: Props) {
         )}
         {!props.userObject && (
           <li className={styles.myProfileHidden}>
-            <Link href="users/protected-user">
+            <Link href="/users/protected-user">
               <a>MY PROFILE</a>
             </Link>
           </li>
         )}
         {props.userObject && (
-          <Link href="users/protected-user">
+          <Link href="/users/protected-user">
             <a>MY PROFILE</a>
           </Link>
         )}
