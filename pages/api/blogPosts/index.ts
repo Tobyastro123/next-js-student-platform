@@ -27,7 +27,6 @@ export default async function createBlogPostHandler(
     const newPost = await createBlogPost(
       postFromRequest.title,
       postFromRequest.story,
-      postFromRequest.author,
       postFromRequest.image,
     );
 

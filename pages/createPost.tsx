@@ -15,7 +15,6 @@ type Props = {
 export default function CreateBlogPost(props: Props) {
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
-  const [author, setAuthor] = useState('');
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -59,7 +58,6 @@ export default function CreateBlogPost(props: Props) {
                 blogPost: {
                   title: title,
                   story: story,
-                  author: author,
                   image: image,
                 },
               }),
@@ -101,7 +99,7 @@ export default function CreateBlogPost(props: Props) {
               )}
             </div>
           </div>
-          <Form.Field>
+          {/* <Form.Field>
             <label>
               <input
                 value={author}
@@ -109,7 +107,7 @@ export default function CreateBlogPost(props: Props) {
                 onChange={(event) => setAuthor(event.currentTarget.value)}
               />
             </label>
-          </Form.Field>
+          </Form.Field> */}
           <Button inverted color="violet">
             Create a Post
           </Button>
