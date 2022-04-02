@@ -32,7 +32,7 @@ Currently it is working and deployed on Heroku. Once is fully finished will have
 
 
 ## Mobile support
-Working on mobile suport
+Working on mobile suport.
 
 ## Built with 
 
