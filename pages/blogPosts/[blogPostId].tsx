@@ -1,16 +1,14 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Fragment, useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Card,
   Comment,
   Container,
-  Divider,
   Form,
   Header,
-  HeaderContent,
   Icon,
   Image,
 } from 'semantic-ui-react';
@@ -22,7 +20,6 @@ import {
   getCommentByPostId,
   getUserByValidSessionToken,
 } from '../../util/database';
-import { PostsResponseBodyGet } from '../api/blogPosts';
 import { PostResponseBody } from '../api/blogPosts/[singlePostId]';
 
 type Props = {
