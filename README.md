@@ -27,6 +27,10 @@ Currently it is working and deployed on Heroku. Once is fully finished will have
 ### Create Post Page
 ![createPostPage](https://user-images.githubusercontent.com/90897068/161397897-6eaa96dc-fac9-48a1-8a3b-0ac701bf1f9f.png)
 
+### Single Post Page with Comment
+![singlePostPagewComment](https://user-images.githubusercontent.com/90897068/161398226-0dd1d87e-3266-421c-8aff-e685744df340.png)
+
+
 ## Mobile support
 Working on mobile suport
 
