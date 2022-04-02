@@ -315,7 +315,7 @@ export default function SingleBlogPost(props: Props) {
 // by Next.js
 export async function getServerSideProps(
   context: GetServerSidePropsContext,
-): Promise<GetServerSidePropsResult<{}>> {
+): Promise<GetServerSidePropsResult<Record<string, unknown>>> {
   const blogPostId = context.query.blogPostId;
   const token = context.req.cookies.sessionToken;
   const user = await getUserByValidSessionToken(token);
