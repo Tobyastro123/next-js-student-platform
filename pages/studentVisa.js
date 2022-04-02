@@ -1,7 +1,7 @@
 import Head from 'next/head';
+import Accordion from '../components/Accordion';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import Accordion from '../components/Accordion';
 
 export default function StudentVisa(props) {
   return (
@@ -51,7 +51,7 @@ export default function StudentVisa(props) {
         />
         <Accordion
           title="✔️ Proof of health insurance coverage (compulsory insurance or a corresponding insurance policy) covering all risks(Nachweis über einen Krankenversicherungsschutz (Pflichtversicherung oder eine entsprechende Versicherungspolizze), der alle Risiken abdeckt)."
-          content="✔️ Make sure that you are going to apply for the social student insurance before you apply for the student visa. All information in details about the costs and documentation required to apply for the student visa can be found on the page Student Social Insurance."
+          content=" Make sure that you are going to apply for the social student insurance before you apply for the student visa. All information in details about the costs and documentation required to apply for the student visa can be found on the page Student Social Insurance."
         />
         <Accordion
           title="✔️ Proof of secure livelihood (in particular pay slips, wage confirmations, service contracts, confirmations of pension, annuity or other insurance benefits, proof of investment capital or own assets in sufficient amount)

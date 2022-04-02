@@ -1,7 +1,7 @@
 import Head from 'next/head';
+import Accordion from '../components/Accordion';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
-import Accordion from '../components/Accordion';
 
 export default function Housing(props) {
   return (

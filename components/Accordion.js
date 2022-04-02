@@ -24,7 +24,7 @@ export default function Accordion(props) {
           textAlign: 'left',
           padding: '8px',
           borderTop: '1px solid',
-          background: '#EBEBEB',
+          background: '#d6eadf',
           outline: 'none',
           cursor: 'pointer',
         }}
