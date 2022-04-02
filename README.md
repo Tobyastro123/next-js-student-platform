@@ -1,4 +1,4 @@
-# ![WebApp]![landingPage](https://user-images.githubusercontent.com/90897068/161397509-3b0634df-de9e-4df3-b471-0e26b37c2099.png)
+# ![landingPage](https://user-images.githubusercontent.com/90897068/161397509-3b0634df-de9e-4df3-b471-0e26b37c2099.png)
 
 # WebApp
 <table>
@@ -19,13 +19,13 @@ Here is a working live demo : https://student-for-student.herokuapp.com/
 ### Landing Page
 Currently it is working and deployed on Heroku. Once is fully finished will have its own domain and released in the real world.
 
-![]![landingPageSlider](https://user-images.githubusercontent.com/90897068/161397693-c452c7c3-7ba7-4a6e-a5af-6f6305ab5093.png)
+![landingPageSlider](https://user-images.githubusercontent.com/90897068/161397693-c452c7c3-7ba7-4a6e-a5af-6f6305ab5093.png)
 
 ### Posts Page
-![]![postsPage](https://user-images.githubusercontent.com/90897068/161397858-38345d27-78f2-4676-a21a-7099dcc2b54b.png)
+![postsPage](https://user-images.githubusercontent.com/90897068/161397858-38345d27-78f2-4676-a21a-7099dcc2b54b.png)
 
 ### Create Post Page
-![]![createPostPage](https://user-images.githubusercontent.com/90897068/161397897-6eaa96dc-fac9-48a1-8a3b-0ac701bf1f9f.png)
+![createPostPage](https://user-images.githubusercontent.com/90897068/161397897-6eaa96dc-fac9-48a1-8a3b-0ac701bf1f9f.png)
 
 ## Mobile support
 Working on mobile suport
