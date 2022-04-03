@@ -28,6 +28,7 @@ export default async function createBlogPostHandler(
       postFromRequest.username,
       postFromRequest.title,
       postFromRequest.story,
+      postFromRequest.topic,
       postFromRequest.image,
     );
 

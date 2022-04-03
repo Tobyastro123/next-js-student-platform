@@ -15,6 +15,7 @@ type Props = {
 export default function CreateBlogPost(props: Props) {
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
+  const [topic, setTopic] = useState('');
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -59,6 +60,7 @@ export default function CreateBlogPost(props: Props) {
                   username: props.userObject.username,
                   title: title,
                   story: story,
+                  topic: topic,
                   image: image,
                 },
               }),
@@ -84,6 +86,15 @@ export default function CreateBlogPost(props: Props) {
             placeholder="Write your story"
             onChange={(event) => setStory(event.currentTarget.value)}
           />
+          <Form.Field>
+            <label>
+              <input
+                value={topic}
+                placeholder="Write your topic"
+                onChange={(event) => setTopic(event.currentTarget.value)}
+              />
+            </label>
+          </Form.Field>
           <div>
             <label htmlFor="picture">Image</label>
             <input
@@ -100,15 +111,7 @@ export default function CreateBlogPost(props: Props) {
               )}
             </div>
           </div>
-          {/* <Form.Field>
-            <label>
-              <input
-                value={author}
-                placeholder="Author"
-                onChange={(event) => setAuthor(event.currentTarget.value)}
-              />
-            </label>
-          </Form.Field> */}
+
           <Button inverted color="violet">
             Create a Post
           </Button>

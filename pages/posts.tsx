@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, CardDescription, Icon, Image } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
@@ -59,7 +59,11 @@ export default function BlogPostList(props: Props) {
                       <Card.Header className={styles.cardHeader}>
                         {blogPost.title}
                       </Card.Header>
-                      {/* <Card.Description>{blogPost.story}</Card.Description> */}
+                      <CardDescription>
+                        <span className={styles.cardTopic}>
+                          {blogPost.topic}
+                        </span>
+                      </CardDescription>
                     </Card.Content>
                   </Link>{' '}
                   <Card.Content extra>

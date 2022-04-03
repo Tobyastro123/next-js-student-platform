@@ -251,6 +251,10 @@ export default function SingleBlogPost(props: Props) {
                     disabled={isDisabled}
                   />
                 </div>
+                <span className={styles.topicOnSinglePost}>
+                  {' '}
+                  {props.blogPosts.topic}
+                </span>
               </div>
             </Container>
 

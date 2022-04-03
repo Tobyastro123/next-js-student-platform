@@ -8,7 +8,7 @@
 
 .card {
   width: 30rem;
-  height: 24rem;
+  height: 26rem;
   font-size: 0.5rem;
   font-family: 'Roboto', sans-serif;
 }
@@ -21,6 +21,14 @@
   width: 32rem;
   margin-left: -5rem;
   font-family: 'Roboto', sans-serif;
+}
+
+.cardTopic {
+  background-color: #d4afb9;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 .navBarContainer {
@@ -56,6 +64,14 @@
   padding-top: 3rem;
   /* padding-bottom: 3rem; */
   /* width: 150rem; */
+}
+
+.topicOnSinglePost {
+  background-color: #d4afb9;
+  font-size: 1.1rem;
+  color: white;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 .singlePostBodyContainer {
@@ -354,7 +370,7 @@
   font-size: 15px;
   padding-left: 5.5rem;
 
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif !important;
   color: black;
 }
 
