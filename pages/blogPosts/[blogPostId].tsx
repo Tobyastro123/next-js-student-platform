@@ -230,7 +230,7 @@ export default function SingleBlogPost(props: Props) {
               />
               <div>
                 <div className={styles.singlePostTitle}>
-                  <Header as="h2" dividing>
+                  <Header dividing>
                     <textarea
                       className={styles.singlePostTitleInput}
                       onChange={(event) =>

@@ -106,32 +106,40 @@
 }
 
 .singlePostTitle {
-  /* font-size: 2rem; */
-  padding-top: 1rem;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
   width: 42rem;
 }
 
 .singlePostTitleInput {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 2.2rem;
   width: 42rem;
   border: none;
   outline: none;
   resize: none;
   border: none;
   outline: none;
+  background-color: initial;
 }
 
 .singlePostStory {
   font-size: 1.5rem;
   margin-top: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .singlePostStoryInput {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   width: 42rem;
   height: 30rem;
   border: none;
   outline: none;
   resize: none;
+  background-color: initial;
 }
 
 .aboutHomePage {
