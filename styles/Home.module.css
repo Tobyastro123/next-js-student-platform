@@ -39,7 +39,11 @@
 }
 
 .myProfileHidden {
-  display: none;
+  display: none !important;
+}
+
+.myProfileHiddenIcons {
+  visibility: hidden !important;
 }
 
 .singlePost {

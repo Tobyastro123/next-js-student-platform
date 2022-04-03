@@ -137,6 +137,13 @@ export default function SingleBlogPost(props: Props) {
     setInitialComments(newCommentList);
   };
   const isDisabled = idEditPostId !== props.blogPosts.id;
+  console.log('isDisabled', isDisabled);
+
+  const isUser =
+    props.userObject && props.userObject.username === props.blogPosts.username;
+  console.log('isUser', isUser);
+  // console.log('props.userObject.username', props.userObject.username);
+  // console.log('props.blogPosts.username', props.blogPosts.username);
 
   return (
     <Layout userObject={props.userObject}>
@@ -151,9 +158,30 @@ export default function SingleBlogPost(props: Props) {
               <Card.Content extra className={styles.singlePostAuthor}>
                 Written by {props.blogPosts.username}
               </Card.Content>
-
-              {isDisabled ? (
+              {isUser ? (
+                isDisabled ? (
+                  <Icon
+                    onClick={() => {
+                      setIdEditPostId(props.blogPosts.id);
+                      setTitleOnEdit(props.blogPosts.title);
+                      setStoryOnEdit(props.blogPosts.story);
+                    }}
+                    name="edit"
+                    color="green"
+                  />
+                ) : (
+                  <Icon
+                    onClick={() => {
+                      updatePost(props.blogPosts.id).catch(() => {});
+                      setIdEditPostId(undefined);
+                    }}
+                    name="save"
+                    color="green"
+                  />
+                )
+              ) : isDisabled ? (
                 <Icon
+                  className={styles.myProfileHiddenIcons}
                   onClick={() => {
                     setIdEditPostId(props.blogPosts.id);
                     setTitleOnEdit(props.blogPosts.title);
@@ -164,6 +192,7 @@ export default function SingleBlogPost(props: Props) {
                 />
               ) : (
                 <Icon
+                  className={styles.myProfileHiddenIcons}
                   onClick={() => {
                     updatePost(props.blogPosts.id).catch(() => {});
                     setIdEditPostId(undefined);
@@ -172,13 +201,25 @@ export default function SingleBlogPost(props: Props) {
                   color="green"
                 />
               )}
-              <Icon
-                name="trash"
-                color="red"
-                onClick={() => {
-                  deletePost(props.blogPosts.id).catch(() => {});
-                }}
-              />
+
+              {isUser ? (
+                <Icon
+                  name="trash"
+                  color="red"
+                  onClick={() => {
+                    deletePost(props.blogPosts.id).catch(() => {});
+                  }}
+                />
+              ) : (
+                <Icon
+                  className={styles.myProfileHiddenIcons}
+                  name="trash"
+                  color="red"
+                  onClick={() => {
+                    deletePost(props.blogPosts.id).catch(() => {});
+                  }}
+                />
+              )}
             </div>
 
             <Container className={styles.singlePostContainer}>
