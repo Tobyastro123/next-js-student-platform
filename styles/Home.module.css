@@ -175,6 +175,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .studentVisaPage h1 {
@@ -213,7 +214,7 @@
 }
 
 .aboutTextContainer h2 {
-  font-family: 'Sacramento', cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
 }
 
@@ -352,7 +353,7 @@
   display: flex;
   padding: 15px 0;
   font-size: 15px;
-  padding-left: 5rem;
+  padding-left: 5.5rem;
 
   font-family: 'Raleway', sans-serif;
   color: black;
