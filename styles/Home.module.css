@@ -3,12 +3,14 @@
   margin-right: 16rem;
   margin-top: 4rem;
   margin-bottom: 15.5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .card {
   width: 30rem;
   height: 24rem;
   font-size: 0.5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .cardImage {
@@ -18,6 +20,7 @@
 .cardHeader {
   width: 32rem;
   margin-left: -5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .navBarContainer {
