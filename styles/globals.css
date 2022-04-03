@@ -24,7 +24,7 @@ a {
 
 @layer base {
   body {
-    @apply p-0 m-0 h-screen font-serif text-gray-900 bg-gray-100 z-50;
+    @apply p-0 m-0 max-h-fit font-serif text-gray-900 bg-gray-100 z-50;
   }
 }
 
@@ -67,13 +67,13 @@ a {
 
   /* image :: */
   .imageWrapper {
-    @apply absolute top-0 left-0 grid w-full mt-4;
+    @apply absolute top-0 left-0 grid w-full mt-8;
   }
   .imageLandingPage {
-    @apply h-[600px] w-[650px] md:h-[750px] md:w-[720px] object-contain ml-[40rem] pb-[7rem];
+    @apply h-[600px] w-[650px] md:h-[600px] md:w-[600px] object-contain ml-[40rem] pb-[7rem] mt-20;
   }
   .imageLandingPage1 {
-    @apply h-[600px] w-[650px] md:h-[450px] md:w-[600px] object-contain ml-52 mt-60;
+    @apply h-[600px] w-[650px] md:h-[350px] md:w-[600px] object-contain ml-52 mt-60;
   }
 }
 
