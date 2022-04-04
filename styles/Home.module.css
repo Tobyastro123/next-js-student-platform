@@ -72,6 +72,7 @@
   color: white;
   border-radius: 0.4rem;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  margin-top: 2rem;
 }
 
 .singlePostBodyContainer {
@@ -159,6 +160,7 @@
   outline: none;
   resize: none;
   background-color: initial;
+  margin-bottom: 1.5rem;
 }
 
 .aboutHomePage {
