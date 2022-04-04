@@ -51,3 +51,5 @@ Working on mobile suport.
 - Add tags
 - Add newsletter
 - Implement sort function
+- Implement Admin role 
+- Create Admin dashboard
