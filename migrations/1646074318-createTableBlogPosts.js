@@ -6,8 +6,7 @@ exports.up = async (sql) => {
 			username varchar(100) REFERENCES users (username) ON DELETE CASCADE,
 			title varchar(120) NOT NULL,
 			story varchar(9999) NOT NULL,
-			topic varchar(100) NOT NULL,
-			image VARCHAR(100) NOT NULL
+			topic varchar(100) NOT NULL
 		);
 	`;
 };

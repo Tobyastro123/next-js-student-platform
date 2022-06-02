@@ -9,35 +9,14 @@ import styles from '../styles/Home.module.css';
 type Props = {
   refreshUserProfile: () => void;
   userObject: { username: string };
-  cloudinaryAPI: string;
 };
 
 export default function CreateBlogPost(props: Props) {
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
   const [topic, setTopic] = useState('');
-  const [image, setImage] = useState('');
-  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
-
-  const uploadImage = async (event: any) => {
-    const files = event.currentTarget.files;
-    const formData = new FormData();
-    formData.append('file', files[0]);
-    formData.append('upload_preset', 'my-uploads');
-    setLoading(true);
-    const response = await fetch(
-      `	https://api.cloudinary.com/v1_1/${props.cloudinaryAPI}/image/upload`,
-      {
-        method: 'POST',
-        body: formData,
-      },
-    );
-    const file = await response.json();
-
-    setImage(file.secure_url);
-    setLoading(false);
-  };
 
   return (
     <Layout userObject={props.userObject}>
@@ -61,7 +40,6 @@ export default function CreateBlogPost(props: Props) {
                   title: title,
                   story: story,
                   topic: topic,
-                  image: image,
                 },
               }),
             });
@@ -95,22 +73,6 @@ export default function CreateBlogPost(props: Props) {
               />
             </label>
           </Form.Field>
-          <div>
-            <label htmlFor="picture">Image</label>
-            <input
-              id="file"
-              type="file"
-              placeholder="Upload an image"
-              onChange={uploadImage}
-            />
-            <div>
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
-                <div className={styles.createPostImage} /> // <img src={image} className={styles.createPostImage} alt="" />
-              )}
-            </div>
-          </div>
 
           <Button inverted color="violet">
             Create a Post
@@ -119,17 +81,4 @@ export default function CreateBlogPost(props: Props) {
       </div>
     </Layout>
   );
-}
-
-export function getServerSideProps() {
-  // Redirect from HTTP to HTTPS on Heroku
-
-  const cloudinaryAPI = process.env.CLOUDINARY_KEY;
-
-  // 3. otherwise render the page
-  return {
-    props: {
-      cloudinaryAPI,
-    },
-  };
 }

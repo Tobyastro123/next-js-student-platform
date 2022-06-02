@@ -29,7 +29,6 @@ export default async function createBlogPostHandler(
       postFromRequest.title,
       postFromRequest.story,
       postFromRequest.topic,
-      postFromRequest.image,
     );
 
     response.status(201).json({ blogPost: newPost });

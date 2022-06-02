@@ -10,7 +10,6 @@ import {
   Form,
   Header,
   Icon,
-  Image,
 } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Home.module.css';
@@ -40,15 +39,6 @@ type Props = {
 
 export default function SingleBlogPost(props: Props) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
-
-  // console.log('Props in blogpostId', props);
-  // console.log(
-  //   'conditional',
-  //   props.userObject &&
-  //     props.userObject.username === props.blogPostComments[0].username,
-  // );
-  // const [title, setTitle] = useState('');
-  // const [story, setStory] = useState('');
 
   // State Variable with the id of the animal on editMode
   const [idEditPostId, setIdEditPostId] = useState<number>();
@@ -114,6 +104,7 @@ export default function SingleBlogPost(props: Props) {
     await router.push(`/blogPosts/${id}`);
   }
 
+  // comment section
   const [userComment, setUserComment] = useState<string>('');
   const [initialComments, setInitialComments] = useState(
     props.blogPostComments,
@@ -223,11 +214,6 @@ export default function SingleBlogPost(props: Props) {
             </div>
 
             <Container className={styles.singlePostContainer}>
-              <Image
-                src={props.blogPosts.image}
-                alt=""
-                className={styles.singlePostImage}
-              />
               <div>
                 <div className={styles.singlePostTitle}>
                   <Header dividing>
@@ -308,7 +294,7 @@ export default function SingleBlogPost(props: Props) {
                         <Comment.Author as="a">{e.username}</Comment.Author>{' '}
                         <Comment.Text>{e.comment} </Comment.Text>
                         <Comment.Actions>
-                          <Comment.Action>
+                          <Comment.Action className={styles.newComment}>
                             Reply {/*  i need a map here */}
                             {props.userObject &&
                               props.userObject.username === e.username && (

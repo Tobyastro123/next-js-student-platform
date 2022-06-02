@@ -1,7 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Card, CardDescription, Image } from 'semantic-ui-react';
+import {
+  Card,
+  CardDescription,
+  Divider,
+  Header,
+  Segment,
+} from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import { BlogPost, getBlogPosts } from '../util/database';
@@ -30,7 +36,7 @@ export default function BlogPostList(props: Props) {
       </div>
       <div className={styles.cardContainer}>
         {/* <Grid centered> */}
-        <Card.Group itemsPerRow={3}>
+        <div>
           {props.blogPosts
             .filter((blogPost) => {
               if (search === '') {
@@ -44,36 +50,19 @@ export default function BlogPostList(props: Props) {
 
             .map((blogPost) => {
               return (
-                <Card
-                  color="brown"
-                  key={`blogPost-${blogPost.id}`}
-                  className={styles.card}
-                >
-                  <Image
-                    src={blogPost.image}
-                    className={styles.cardImage}
-                    alt=""
-                  />
+                <div key={`blogPost-${blogPost.id}`}>
+                  <div>
+                    <span className={styles.cardTopic}>{blogPost.topic}</span>
+                  </div>
                   <Link href={`/blogPosts/${blogPost.id}`} passHref>
-                    <Card.Content>
-                      <Card.Header className={styles.cardHeader}>
-                        {blogPost.title}
-                      </Card.Header>
-                      <CardDescription>
-                        <span className={styles.cardTopic}>
-                          {blogPost.topic}
-                        </span>
-                      </CardDescription>
-                    </Card.Content>
+                    <Header as="h1">{blogPost.title}</Header>
                   </Link>{' '}
-                  <Card.Content extra>
-                    Written by {blogPost.username}
-                  </Card.Content>
-                </Card>
+                  <div>Written by {blogPost.username}</div>
+                  <Divider />
+                </div>
               );
             })}
-        </Card.Group>
-        {/* </Grid> */}
+        </div>
       </div>
     </Layout>
   );
